@@ -1,0 +1,3 @@
+const ischeck = await client.modules.hasrequest(client, player);
+if(ischeck === true) { await client.modules.editpembed(client, player) }
+else { return; }

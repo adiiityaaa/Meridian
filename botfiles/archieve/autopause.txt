@@ -1,0 +1,4 @@
+let autopause;    
+const apcheck = client.db.get(`autopause_${interaction.guild.id}`);
+if(apcheck === null || apcheck === false) { autopause = "> False" }    
+else if(apcheck === true) { autopause = "> True" } 

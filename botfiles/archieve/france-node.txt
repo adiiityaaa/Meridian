@@ -1,0 +1,2 @@
+
+               { host: "node01.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fr: France" },
