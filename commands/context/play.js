@@ -23,7 +23,7 @@ const player = client.manager.players.get(interaction.guild.id);
  if(player.state !== "CONNECTED") { player.connect() }
  let res;    
  try {
-    res = await client.manager.search(query.content, interaction.member)
+    res = await client.manager.search(query, interaction.member)
     if (res.loadType === 'LOAD_FAILED') {
       if (!player.queue.current) player.destroy()
       interaction.reply({ embeds: [noresult] })

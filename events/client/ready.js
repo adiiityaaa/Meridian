@@ -5,7 +5,7 @@ const embed = client.modules.embed(client, client.colors.green, `${client.emotes
 client.channels.cache.get(client.settings.clientlog).send({ embeds: [embed] })
 await client.manager.init(client.user.id)
 await client.modules.updatestats(client)
-setTimeout(async function() {
-client.modules.updatestats(client)  
-}, 600000)    
+  setInterval(() => {
+    client.modules.updatestats(client);
+  }, 900000);
 }
