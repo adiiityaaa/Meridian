@@ -18,7 +18,9 @@ options: [
     },
   ],    
 run: async(client, interaction) => {  
+  const nojoin = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Cannot join your voice channel.**`)
   const err = client.embeds.error(client);
+  if(!interaction.member.voice.channel.joinable) { return interaction.reply({ embeds: [nojoin] }) }  
   const plcheck = client.manager.players.get(interaction.guild.id);
   if(!plcheck) {
       const player = interaction.client.manager.create({
@@ -31,7 +33,7 @@ run: async(client, interaction) => {
  const ischeck = await client.modules.hasrequest(client, player);    
  const query = interaction.options.getString("song")
  const noresult = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **No Results found for __${query}__!**`)
- if(player.state !== "CONNECTED") player.connect()
+ if(player.state !== "CONNECTED") { player.connect() }
  let res;
  try {
     res = await client.manager.search(query, interaction.user)

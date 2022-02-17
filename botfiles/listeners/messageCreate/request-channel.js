@@ -1,20 +1,21 @@
 module.exports.run = async(client, message) => {
 const rccheck = await client.modules.isrequest(client, message.channel.id, message.guild.id);
 if(rccheck === false) { return; }   
-if(message.author.id === client.user.id) { setTimeout(function() { message.delete() }, 30000) }
-else { message.delete() }
+if(message.author.id === client.user.id) { setTimeout(function() { message.delete().catch(e => { console.log(e) }) }, 10000) }
+else { message.delete().catch(e => { console.log(e) }) }
 if(message.author.bot) { return; }
 const query = message.content;
 const novc = client.embeds.novoice(client);
   const nomutu = client.embeds.nomutual(client);
   const nosong = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a Song Name/Link!**`);
-  const cantjoin = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Cannot join your Voice Channel!**`);
+  const cantjoin = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Cannot join your Voice Channel.**`);
   const nomen = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please don't mention anyone!**`);
   const noinv = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **No invite links in this Channel!**`);
   const err = client.embeds.error(client);
   const channel = message.member.voice.channel;
   if(!channel) { return message.channel.send({ embeds: [novc] }) }
   if(message.guild.me.voice.channel && message.guild.me.voice.channel.id !== message.member.voice.channel.id) { return message.channel.send({ embeds: [nomutu] }) }
+  if(!channel.joinable) { return message.channel.send({ embeds: [cantjoin] }) }
   if(query.includes("discord.gg/") || query.includes("dsc.gg/") || query.includes("/invite/") || query.includes("discord.io")) { return message.channel.send({ embeds: [noinv] }) }
   if(message.mentions.members.size > 0) { return message.channel.send({ embeds: [nomen] }) }
   let reqchx;
@@ -65,5 +66,5 @@ const novc = client.embeds.novoice(client);
       if (!player.playing && !player.paused && !player.queue.length) player.play()
        client.modules.editqembed(client, player)    
       return;
-  }
+  }    
 }

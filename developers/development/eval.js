@@ -9,11 +9,13 @@ try {
    try {
         evaled = await eval(args.join(" "));
         const embed2 = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Code has been Evaled.**\n${client.emotes.garrow} \`${evaled}\``)
-        message.channel.send({ embedS: [embed2] })
+        msg.delete()
+        message.channel.send({ embeds: [embed2] })
             } catch (error) {
         console.error(error);
         const embed3 = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An Error Occured.**\n${client.emotes.rarrow} \`${error.message}\``)
                     .setColor(client.colors.red)
+        msg.delete()
        message.channel.send({ embeds: [embed3] })
             }
         } catch (err) {

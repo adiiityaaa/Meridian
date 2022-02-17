@@ -1,0 +1,3 @@
+
+const VoidBotsClient = require("voidbots");
+const voidbots = new VoidBotsClient('VOID_ya8jx4U8tMlh7j8W8QhPnEWbS5IDdTolpPxcH7zueqOmC03B', { autoPost: true, webhookEnabled: true }, client);

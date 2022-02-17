@@ -23,6 +23,7 @@
     "lodash": "^4.17.21",
     "os": "^0.1.2",
     "quick.db": "^7.1.3",
-    "topgg-autoposter": "^2.0.1"
+    "topgg-autoposter": "^2.0.1",
+    "voidbots": "^2.6.3"
   }
 }
