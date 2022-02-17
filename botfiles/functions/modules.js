@@ -15,6 +15,7 @@ module.exports.isadj = isadj;
 module.exports.resetplayer = resetplayer;
 module.exports.progressbar = progressbar;
 module.exports.updatestats = updatestats;
+module.exports.rejoinplayer = rejoinplayer;
 
 async function updatestats(client) {
 let cpuLol;
@@ -28,6 +29,21 @@ const embed = new client.discord.MessageEmbed()
 .setTimestamp()
 client.guilds.cache.get("941672154209071164").channels.cache.get("941746209142505503").messages.fetch("941750118032486481").then(x => { x.edit({ embeds: [embed] })})
 })}
+
+async function rejoinplayer(client) {
+client.guilds.cache.forEach(guild => {
+if(client.db.has(`playerdata_${guild.id}`)) {
+ const data = client.db.get(`playerdata_${guild.id}`)
+ const player = client.manager.create({
+   guild: guild.id,
+   voiceChannel: data.vc,
+   textChannel: data.tc,
+   selfDeafen: true,
+ })
+ if(player.state !== "CONNECTED") { player.connect() }
+ const check = client.modules.hasrequest(client, player)    
+ if(check === true) { client.modules.resetplayer(client, player) }
+}})}
 
 async function hasrequestchx(client, message) {
  const check = client.db.get(`isystemcheck_${message.guild.id}`);
