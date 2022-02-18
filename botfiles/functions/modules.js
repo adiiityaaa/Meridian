@@ -31,8 +31,8 @@ client.guilds.cache.get("941672154209071164").channels.cache.get("94174620914250
 })}
 
 async function rejoinplayer(client) {
-client.guilds.cache.forEach(guild => {
-if(client.db.has(`playerdata_${guild.id}`)) {
+client.guilds.cache.forEach(guild => { 
+if(client.db.has(`247_${guild.id}`) === true) {
  const data = client.db.get(`playerdata_${guild.id}`)
  const player = client.manager.create({
    guild: guild.id,

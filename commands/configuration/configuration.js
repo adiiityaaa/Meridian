@@ -25,6 +25,10 @@ let vcldata = client.db.fetch(`voicelogs_${interaction.guild.id}`);
 let vclchannel = client.channels.cache.get(vcldata);
 if(!vclchannel) { vclchx = "> None"; }
 else { vclchx = `> ${vclchannel}`; }
-const embed = client.modules.embed(client, client.colors.green, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.channel} **Request Channel:**\n${ischx}\n\n${client.emotes.package} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.role} | **DJ Roles:**\n${djdata}`)    
+let two47;
+let twenty47 = client.db.get(`247_${interaction.guild.id}`)    
+if(twenty47 === null || twenty47 === false) { two47 = "> Disabled" }
+else { two47 = "> Enabled" }    
+const embed = client.modules.embed(client, client.colors.green, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **24/7 Mode:**\n${two47}\n\n${client.emotes.dot} | **DJ Roles:**\n${djdata}`)    
 await interaction.reply({ embeds: [embed] })
 }}
