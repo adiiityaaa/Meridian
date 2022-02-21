@@ -7,7 +7,8 @@ developerOnly: false,
 voiceChannel: false,
 mutualChannel: false,
 djOnly: true,     
-clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "MANAGE_GUILD"],
+clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
+memberPerms: ["MANAGE_GUILD"],
 run: async(client, interaction) => {
 const check = client.db.get(`247_${interaction.guild.id}`);
 let mode;

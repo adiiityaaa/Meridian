@@ -3,6 +3,7 @@ const client = new Discord.Client({ intents: 32767 });
 const { Manager } = require("erela.js");
 const Deezer = require("erela.js-deezer");
 const Facebook = require("erela.js-facebook");
+const filter  = require("erela.js-filters");
 const Spotify = require("better-erela.js-spotify").default;
 const { default: AppleMusic } = require("better-erela.js-apple");
 const config = require("./botfiles/config/settings.json");
@@ -19,6 +20,7 @@ client.manager = new Manager({
                 new Deezer(),
                 new Facebook(),
                 new AppleMusic(),
+                new filter(),
                 new Spotify({
                   clientID: config.spotifyID,
                   clientSecret: config.spotifySecret,
