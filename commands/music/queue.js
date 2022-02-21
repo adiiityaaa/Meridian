@@ -25,9 +25,13 @@ const noq = client.embeds.noqueue(client);
 const player = client.manager.players.get(interaction.guild.id);
 if(!player) { return interaction.editReply({ embeds: [noq] }) }
 if(player) {
- const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.dot} **Now Playing:**\n#0 ${client.emotes.parrow} [${player.queue.current.title}](${player.queue.current.uri}) : ${client.modules.duration(client, player.queue.current.duration)} by ${player.queue.current.requester}`)
+ const embed = new client.discord.MessageEmbed()
+ .setColor(client.colors.gold)
+ .setDescription(`${client.emotes.dot} **Now Playing:**\n#0 ${client.emotes.parrow} [${player.queue.current.title}](${player.queue.current.uri}) : ${client.modules.duration(client, player.queue.current.duration)} by ${player.queue.current.requester}`)
  if(player.queue.length === 0) { interaction.editReply({ embeds: [embed] }) }
- if(player.queue.length < 15) { const embed15 = client.modules.embed(client, client.colors.gold, `${client.emotes.dot} **Now Playing:**\n#0 ${client.emotes.parrow} [${player.queue.current.title}](${player.queue.current.uri}) : ${client.modules.duration(client, player.queue.current.duration)} by ${player.queue.current.requester}\n\n${client.emotes.dot} **Upcoming Tracks [${player.queue.length}]:**\n${player.queue.map((t, i) => `#${++i} ${client.emotes.parrow} [${t.title}](${t.uri}) : ${client.modules.duration(client, t.duration)} by ${t.requester}`).join("\n")}`) 
+ if(player.queue.length < 15) { const embed15 = new client.discord.MessageEmbed()
+ .setColor(client.colors.gold)
+ .setDescription(`${client.emotes.dot} **Now Playing:**\n#0 ${client.emotes.parrow} [${player.queue.current.title}](${player.queue.current.uri}) : ${client.modules.duration(client, player.queue.current.duration)} by ${player.queue.current.requester}\n\n${client.emotes.dot} **Upcoming Tracks [${player.queue.length}]:**\n${player.queue.map((t, i) => `#${++i} ${client.emotes.parrow} [${t.title}](${t.uri}) : ${client.modules.duration(client, t.duration)} by ${t.requester}`).join("\n")}`)
  interaction.editReply({ embeds: [embed15] }) }
  if(player.queue.length > 15) {
   const mapping = player.queue.map((t, i) => `#${++i} ${client.emotes.parrow} [${t.title}](${t.uri}) : ${client.modules.duration(client, t.duration)} by ${t.requester}`);

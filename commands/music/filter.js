@@ -16,33 +16,129 @@ options: [
       required: true,
       choices: [
        {
-              name: "DJ Roles",
-              value: "djrole",
+              name: "8D",
+              value: "eightd",
        },
        {
-              name: "Request Channel",
-              value: "requestchannel",
-       },  
-       {
-              name: "Voice Channel Logs",
-              value: "voicelogs",
-       },  
-       {
-              name: "Everything",
-              value: "everything",
+              name: "Bassboost",
+              value: "bassboost",
        },
+       {
+              name: "Chipmunk",
+              value: "chipmunk",
+       },
+       {
+              name: "Darthvader",
+              value: "darthvader",
+       },
+       {
+              name: "Earrape",
+              value: "earrape",
+       },          
+       {
+              name: "Karaoke",
+              value: "karaoke",
+       },
+       {
+              name: "Nightcore",
+              value: "nightcore",
+       },
+       {
+              name: "Pitch",
+              value: "pitch",
+       },           
+       {
+              name: "Pop",
+              value: "pop",
+       },          
+       {
+              name: "Reset",
+              value: "reset",
+       },          
+       {
+              name: "Slowmo",
+              value: "slowmo",
+       },
+       {
+              name: "Soft",
+              value: "soft",
+       },
+       {
+              name: "Speed",
+              value: "speed",
+       },       
+       {
+              name: "Tremolo",
+              value: "tremolo",
+       },          
+       {
+              name: "Vaporwave",
+              value: "vaporwave",
+       },
+       {
+              name: "Vibrate",
+              value: "vibrate",
+       },          
      ],
    },
  ],      
 run: async(client, interaction) => {
 const noq = client.embeds.noplay(client);        
-const already = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Player has been Paused.**`)  
+const name = interaction.options.getString("name");  
 const enable = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Enabled the Filter.**`)  
 const disable = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Filter has been Cleared.**`)  
+const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.loading} | **Coming Soon!**`)
 const player = client.manager.players.get(interaction.guild.id);
 if(!player) { return interaction.reply({ embeds: [noq] }) }
 if(player) {
-if(!player.queue) { return interaction.reply({ embeds: [noq] }) }
-if(!player.playing) { return interaction.reply({ embeds: [already] }) }   
-   
-}}}    
+if(!player.queue || !player.playing) { return interaction.reply({ embeds: [noq] }) }   
+switch(name) {
+    case "eightd":
+    interaction.reply({ embeds: [embed] })
+    break;
+    case "bassboost":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "chipmunk":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "darthvader":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "earrape":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "karaoke":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "nightcore":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "pitch":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "pop":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "reset":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "slowmo":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "soft":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "speed":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "tremolo":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "vaporwave":
+    interaction.reply({ embeds: [embed] })        
+    break;
+    case "vibrate":
+    interaction.reply({ embeds: [embed] })        
+    break;        
+}}}}    

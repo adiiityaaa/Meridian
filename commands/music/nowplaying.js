@@ -17,7 +17,7 @@ clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
      const bar = await client.modules.progressbar(client, check.position, check.queue.current.duration)
      const embed = new client.discord.MessageEmbed()
      .setThumbnail(check.queue.current.thumbnail)
-     .setColor(`${client.colors.cyan}`)
+     .setColor(`${client.colors.gold}`)
      .setDescription(`${client.emotes.music} | **Now Playing:**\n\n${client.emotes.parrow}[${check.queue.current.title}](${check.queue.current.uri})\n${client.emotes.parrow} Requested by: ${check.queue.current.requester}\n${bar}`)
      await interaction.reply({ embeds: [embed] })
   }

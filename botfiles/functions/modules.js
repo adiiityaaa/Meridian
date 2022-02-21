@@ -113,7 +113,6 @@ function duration(client, ms) {
 async function editpembed(client, player) {
    const dur = client.modules.duration(client, player.queue.current.duration)
    let aucheck = client.db.get(`autoplay_${player.guild}`);
-   let lpcheck = client.db.get(`loopmode_${player.guild}`);
    let loop;
    if(!player.queueRepeat && !player.trackRepeat) { loop = "" }
    else if(player.queueRepeat && !player.trackRepeat) { loop = "| Loop: Queue" }
