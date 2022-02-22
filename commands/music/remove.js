@@ -35,7 +35,7 @@ run: async(client, interaction) => {
    await client.modules.editpembed(client, player) }
    interaction.reply({ embeds: [skipping] }) }
    else {
-   player.queue.remove(num);
+   await player.queue.remove(num);
    const ischeck = await client.modules.hasrequest(client, player)
    if(ischeck === true) { await client.modules.editqembed(client, player) }
    await interaction.reply({ embeds: [success] })

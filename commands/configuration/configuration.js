@@ -13,6 +13,14 @@ let djdata;
 const roles = client.db.get(`djroles_${interaction.guild.id}`);
 if(!roles || roles === "[]") { djdata = "> None" }
 else { djdata = roles.map(i => `> <@&${i}>`).join("\n"); }
+let invcdata;
+const iroles = client.db.get(`invcroles_${interaction.guild.id}`);
+if(!iroles || iroles === "[]") { invcdata = "> None" }
+else { invcdata = iroles.map(i => `> <@&${i}>`).join("\n"); } 
+let amdata;
+const amcheck = client.db.get(`antimessage_${interaction.guild.id}`);
+if(amcheck === null) { amdata = "> True" }
+else { amdata = "> False" }     
 let ischx;
 const ischeck = await client.db.fetch(`isystemcheck_${interaction.guild.id}`);
 if(ischeck === null) { ischx = "> None"; }
@@ -29,6 +37,6 @@ let two47;
 let twenty47 = client.db.get(`247_${interaction.guild.id}`)    
 if(twenty47 === null || twenty47 === false) { two47 = "> Disabled" }
 else { two47 = "> Enabled" }    
-const embed = client.modules.embed(client, client.colors.green, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **24/7 Mode:**\n${two47}\n\n${client.emotes.dot} | **DJ Roles:**\n${djdata}`)    
+const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **24/7 Mode:**\n${two47}\n\n${client.emotes.dot} **Announcement Messages:**\n${amdata}\n\n${client.emotes.dot} **DJ Roles:**\n${djdata}\n\n${client.emotes.dot} **In VC Roles:**\n${invcdata}`)    
 await interaction.reply({ embeds: [embed] })
 }}
