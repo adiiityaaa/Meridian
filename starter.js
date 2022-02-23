@@ -11,6 +11,11 @@ const { DiscordTogether } = require('discord-together');
 const { AutoPoster } = require("topgg-autoposter");
 const poster = AutoPoster(config.topgg, client)
 const Topgg = require(`@top-gg/sdk`)
+const Statcord = require("statcord.js")
+const statcord = new Statcord.Client({ 
+  client, 
+  key: "statcord.com-WQSHbcHNYS1Iay7rsqja"
+})
 client.manager = new Manager({
             nodes: [
                { host: "node03.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fi: Finland" },
@@ -50,8 +55,17 @@ client.buttons = new Discord.Collection();
 });
 
 poster.on('posted', (stats) => { 
-  console.log(`Posted stats to Top.gg | ${stats.serverCount} servers`)
+  console.log(`✔ | Posted stats to Top.gg | ${stats.serverCount} servers`)
 })
+
+statcord.on("autopost-start", () => {
+  console.log("✔ | Statcord Autoposting Started.");
+});
+
+statcord.on("post", status => {
+  if (!status) { return; }
+  else { console.error(`❌ | Statcord Autopost Error:\n${status}`); }
+});
 
 process.on('unhandledRejection', (reason, p) => {
         console.log('❌ | Unhandled Rejection has Occured!');
