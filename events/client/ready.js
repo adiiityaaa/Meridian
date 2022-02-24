@@ -2,6 +2,7 @@ module.exports.run = async(client) => {
 const embed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Established Connection with Client!**`)
 client.channels.cache.get(client.settings.clientlog).send({ embeds: [embed] })
 await client.manager.init(client.user.id)
+client.statcord.autopost();    
 let i = 0
  setInterval(() => {
  const textArray = [

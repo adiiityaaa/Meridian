@@ -11,11 +11,7 @@ const { DiscordTogether } = require('discord-together');
 const { AutoPoster } = require("topgg-autoposter");
 const poster = AutoPoster(config.topgg, client)
 const Topgg = require(`@top-gg/sdk`)
-const Statcord = require("statcord.js")
-const statcord = new Statcord.Client({ 
-  client, 
-  key: "statcord.com-WQSHbcHNYS1Iay7rsqja"
-})
+const Statcord = require("statcord.js");
 client.manager = new Manager({
             nodes: [
                { host: "node03.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fi: Finland" },
@@ -47,6 +43,10 @@ client.db = require("quick.db");
 client.discord = require("discord.js");
 client.topgg = new Topgg.Api(config.topgg);
 client.activities = new DiscordTogether(client);
+client.statcord = new Statcord.Client({ 
+  client, 
+  key: "statcord.com-WQSHbcHNYS1Iay7rsqja"
+})
 client.commands = new Discord.Collection();
 client.developers = new Discord.Collection();
 client.buttons = new Discord.Collection();
@@ -58,11 +58,11 @@ poster.on('posted', (stats) => {
   console.log(`✔ | Posted stats to Top.gg | ${stats.serverCount} servers`)
 })
 
-statcord.on("autopost-start", () => {
+client.statcord.on("autopost-start", () => {
   console.log("✔ | Statcord Autoposting Started.");
 });
 
-statcord.on("post", status => {
+client.statcord.on("post", status => {
   if (!status) { return; }
   else { console.error(`❌ | Statcord Autopost Error:\n${status}`); }
 });
