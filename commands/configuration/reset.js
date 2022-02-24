@@ -23,7 +23,7 @@ options: [
        {
               name: "In VC Roles",
               value: "invcrole",
-       },          
+       },        
        {
               name: "Request Channel",
               value: "requestchannel",
@@ -62,7 +62,7 @@ switch(option) {
     case "djrole":
     if(client.db.has(`djroles_${interaction.guild.id}`)) { client.db.delete(`djroles_${interaction.guild.id}`) 
     interaction.reply({ embeds: [djsuccess] })} else { interaction.reply({ embeds: [djnot] }) }
-    break;        
+    break;            
     case "invcrole":
     if(client.db.has(`invcroles_${interaction.guild.id}`)) { client.db.delete(`invcroles_${interaction.guild.id}`) 
     interaction.reply({ embeds: [invcsuccess] })} else { interaction.reply({ embeds: [invcnot] }) }
@@ -73,7 +73,7 @@ switch(option) {
     break;
     case "everything":
     if(client.db.has(`djroles_${interaction.guild.id}`)) { client.db.delete(`djroles_${interaction.guild.id}`) }
-    if(client.db.has(`invcroles_${interaction.guild.id}`)) { client.db.delete(`invcroles_${interaction.guild.id}`) }       
+    if(client.db.has(`invcroles_${interaction.guild.id}`)) { client.db.delete(`invcroles_${interaction.guild.id}`) }        
     if(client.db.has(`voicelogs_${interaction.guild.id}`)) { client.db.delete(`voicelogs_${interaction.guild.id}`) } 
     if(client.db.has(`isystemcheck_${interaction.guild.id}`)) {
     client.db.delete(`isystemcheck_${interaction.guild.id}`)    
