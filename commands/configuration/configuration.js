@@ -28,11 +28,7 @@ let vclchx;
 let vcldata = client.db.fetch(`voicelogs_${interaction.guild.id}`);
 let vclchannel = client.channels.cache.get(vcldata);
 if(!vclchannel) { vclchx = "> None"; }
-else { vclchx = `> ${vclchannel}`; }
-let two47;
-let twenty47 = client.db.get(`247_${interaction.guild.id}`)    
-if(twenty47 === null || twenty47 === false) { two47 = "> Disabled" }
-else { two47 = "> Enabled" }    
-const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **24/7 Mode:**\n${two47}\n\n${client.emotes.dot} **DJ Roles:**\n${djdata}\n\n${client.emotes.dot} **In VC Roles:**\n${invcdata}`)    
+else { vclchx = `> ${vclchannel}`; } 
+const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **DJ Roles:**\n${djdata}\n\n${client.emotes.dot} **In VC Roles:**\n${invcdata}`)    
 await interaction.reply({ embeds: [embed] })
 }}
