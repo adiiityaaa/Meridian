@@ -1,7 +1,7 @@
 module.exports.run = async(client, message) => {
 const rccheck = await client.modules.isrequest(client, message.channel.id, message.guild.id);
 if(rccheck === false) { return; }   
-if(message.author.id === client.user.id) { setTimeout(function() { message.delete().catch(e => { console.log(e) }) }, 10000) }
+if(message.author.id === client.user.id) { setTimeout(function() { message.delete().catch(e => { console.log(e) }) }, 5000) }
 else { message.delete().catch(e => { console.log(e) }) }
 if(message.author.bot) { return; }
 const query = message.content;
