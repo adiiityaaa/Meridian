@@ -5,6 +5,7 @@ if(!interaction.guild) { return interaction.reply({ embeds: [server] }) }
  if(interaction.isCommand()) {     
  const slashcmd = client.commands.get(interaction.commandName)
  if(!slashcmd) { return; }    
+ const cmdused = client.modules.embed(client, client.colors.green, `${client.emotes.info} | **${interaction.user.tag} has used ${interaction.commandName} Command.**`) 
  if(slashcmd.developerOnly) {
   const devsonly = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command restricted to Developers.**`)
   if(client.developers.include(interaction.user.id)) { return interaction.reply({ embeds: [devsonly] }) }
@@ -36,8 +37,9 @@ if(slashcmd.djOnly && djcheck) {
   const nodj = client.embeds.nodj(client);
   if(!mdjcheck) { return interaction.reply({ embeds: [nodj] }) } 
 } 
- try {
+ try {  
         await client.commands.get(interaction.commandName).run(client, interaction); 
+        if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.channels.cache.get(client.db.get(`cmdlogs_${interaction.guild.id}`)).send({ embeds: [cmdused] }) }
 	} catch (error) {
 		console.log(error);
         const errorembed = client.embeds.error(client);
@@ -69,6 +71,7 @@ const novc = client.embeds.novoice(client);
 const customId = interaction.customId;
  const slashcmd = client.buttons.get(customId);
  if(!slashcmd) { return; }
+ const btnused = client.modules.embed(client, client.colors.green, `${client.emotes.info} | **${interaction.user.tag} has used ${customId} Button.**`) 
  if(slashcmd.voiceChannel) {
     const novc = client.embeds.novoice(client);
     if(!interaction.member.voice.channel) { interaction.reply({ embeds: [novc] })}
@@ -86,6 +89,7 @@ if(slashcmd.djOnly && djcheck) {
 }  
   try {
     await client.buttons.get(customId).run(client, interaction);      
+    if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.channels.cache.get(client.db.get(`cmdlogs_${interaction.guild.id}`)).send({ embeds: [btnused] }) }
   } catch(error) {
   console.log(error);
   const errorembed = client.embeds.error(client);
