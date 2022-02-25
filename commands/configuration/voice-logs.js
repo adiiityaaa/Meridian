@@ -29,7 +29,7 @@ options: [
     {
       name: "channel",
       type: "CHANNEL",
-      description: "Channel where the request channel should be setup!",
+      description: "Channel where the voice logs should be setup!",
       required: false,
       channelTypes: ["GUILD_TEXT"],
     },

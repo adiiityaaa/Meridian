@@ -19,6 +19,7 @@ options: [
 run: async(client, interaction) => {
   const noq = client.embeds.noqueue(client);
   const num = interaction.options.getInteger("song-number");
+  const number = num - 1;
   const success = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Song at position ${num} has been removed.**`)
   const great = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Number is greater than Songs in Queue.**`)
   const lastsong = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **This is the last song in Queue.**`)
@@ -28,15 +29,9 @@ run: async(client, interaction) => {
   if(player) {
    if(!player.queue || !player.playing) { return interaction.reply({ embeds: [noq] }) }
    if(player.queue.size === 0) { return interaction.reply({ embeds: [lastsong] }) }
-   if(num > player.queue.size) { return interaction.reply({ embeds: [great] }) }
-   if(num === "0") { player.stop()
-   const ischeck = await client.modules.hasrequest(client, player)
-   if(ischeck === true) { await client.modules.editqembed(client, player)
-   await client.modules.editpembed(client, player) }
-   interaction.reply({ embeds: [skipping] }) }
-   else {
-   await player.queue.remove(num);
+   if(number > player.queue.size) { return interaction.reply({ embeds: [great] }) }
+   await player.queue.remove(number);
    const ischeck = await client.modules.hasrequest(client, player)
    if(ischeck === true) { await client.modules.editqembed(client, player) }
    await interaction.reply({ embeds: [success] })
-}}}}    
+}}}
