@@ -29,8 +29,8 @@ run: async(client, interaction) => {
   if(player) {
    if(!player.queue || !player.playing) { return interaction.reply({ embeds: [noq] }) }
    if(player.queue.size === 0) { return interaction.reply({ embeds: [lastsong] }) }
-   if(number > player.queue.size) { return interaction.reply({ embeds: [great] }) }
-   await player.queue.remove(number);
+   if(num > player.queue.size) { return interaction.reply({ embeds: [great] }) }
+   await player.queue.remove(num);
    const ischeck = await client.modules.hasrequest(client, player)
    if(ischeck === true) { await client.modules.editqembed(client, player) }
    await interaction.reply({ embeds: [success] })
