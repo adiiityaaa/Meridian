@@ -1,19 +1,19 @@
 module.exports = { 
-    name: "mute",
-    description: "Mute a user from Voice Channel.",
+    name: "move",
+    description: "Move a user from Voice Channel.",
     category: "Voice-Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,
     mutualChannel: false,
     djOnly: false,    
-    clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "MUTE_MEMBERS"],
-    authorPerms: ["MUTE_MEMBERS"],
+    clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "MOVE_MEMBERS"],
+    authorPerms: ["MOVE_MEMBERS"],
     options: [
         {
             name: "option",
             type: "STRING",
-            description: "Specify whom you want to Mute.",
+            description: "Specify whom you want to Move.",
             required: true,
             choices: [
               {
@@ -27,31 +27,38 @@ module.exports = {
            ],  
        },    
        {
+        name: "where_to_move",
+        type: "CHANNEL",
+        description: "Channel where you want to Move Member.",
+        required: true,
+       },              
+       {
         name: "member",
         type: "USER",
-        description: "Member whom you want to Mute.",
+        description: "Member whom you want to Move.",
         required: false,
        },
        {
         name: "channel",
         type: "CHANNEL",
-        description: "Channel from which you want to Mute everyone.",
+        description: "Channel from which you want to Move everyone.",
         required: false,
        },
     ], 
     run: async(client, interaction) => {
      const option = interaction.options.getString('option')
-     const nomember = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a Member to Mute.**`)
-     const nochannel = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a Channel to Mute from.**`)
+     const tochannel = interaction.options.getChannel('where_to_move')
+     const nomember = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a Member to Move.**`)
+     const nochannel = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a Channel to Move from.**`)
      switch(option) {
      case "member":
      const member = interaction.options.getMember('member');
      if(!member) { return interaction.reply({ embeds: [nomember] }) }
-     const membersuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Muted <@${member.id}> in Voice Channel.**`)
+     const membersuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> moved to <#${tochannel}>.**`)
      const novc = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not in a Voice Channel.**`)
-     const nomute = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Muted.**`)
+     const already = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already in <#${tochannel}>.**`)
      if(!member.voice.channel) { return interaction.reply({ embeds: [novc] }) }
-     if(!member.voice.serverMute) { return interaction.reply({ embeds: [nomute] }) } 
+     if(member.voice.channel.id === tochannel.id) { return interaction.reply({ embeds: [already] }) } 
      member.voice.setMute(true, `Command used by ${interaction.user.tag}`)
      interaction.reply({ embeds: [membersuccess] })
      break;
@@ -59,13 +66,12 @@ module.exports = {
      const channel = interaction.options.getChannel('channel');
      if(!channel) { return interaction.reply({ embeds: [nochannel] }) }
      const noone = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Noone has joined <#${channel.id}>.**`)
-     const everyonesuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Muted everyone in <#${channel.id}>.**`)
-     const notunmute = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Noone is Unmuted in <#${channel.id}>`)
+     const everyonesuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Moved everyone in <#${channel.id}> to <#${tochannel.id}>.**`)
+     const samechannel = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<#${channel.id}> is same as <#${tochannel.id}>`)
      if(channel.members.size === 0) { return interaction.reply({ embeds: [noone] }) }
-     const data = channel.members.filter(member => !member.voice.serverMute).size;
-     if(data === 0) { return interaction.reply({ embeds: [notunmute] }) }     
+     if(channel.id === tochannel.id) { return interaction.reply({ embeds: [samechannel] }) }     
      for (let memberi of channel.members) {
-     memberi[1].voice.setMute(true, `Command used by ${interaction.user.tag}`); }
+     memberi[1].voice.setChannel(tochannel.id, `Command used by ${interaction.user.tag}`); }
      interaction.reply({ embeds: [everyonesuccess] })
      break;
     }}}

@@ -7,8 +7,8 @@ module.exports = {
     voiceChannel: false,
     mutualChannel: false,
     djOnly: false,    
-    clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "MOVE_MEMBERS"],
-    authorPerms: ["MOVE_MEMBERS"],
+    clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "DEAFEN_MEMBERS"],
+    authorPerms: ["DEAFEN_MEMBERS"],
     options: [
         {
             name: "option",
@@ -49,7 +49,9 @@ module.exports = {
      if(!member) { return interaction.reply({ embeds: [nomember] }) }
      const membersuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Deafened <@${member.id}> in Voice Channel.**`)
      const novc = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not in a Voice Channel.**`)
+     const nodeaf = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Deafened.**`)
      if(!member.voice.channel) { return interaction.reply({ embeds: [novc] }) }
+     if(member.voice.serverDeaf) { return interaction.reply({ embeds: [nodeaf] })}
      member.voice.setDeaf(true, `Command used by ${interaction.user.tag}`)
      interaction.reply({ embeds: [membersuccess] })
      break;
