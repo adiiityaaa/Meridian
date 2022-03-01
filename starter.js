@@ -40,6 +40,7 @@ client.modules = require("./botfiles/functions/modules.js");
 client.btns = require("./botfiles/functions/buttons.js");
 client.embeds = require("./botfiles/functions/embeds.js");
 client.db = require("quick.db");
+client.voicedb = require("quick.db");
 client.discord = require("discord.js");
 client.topgg = new Topgg.Api(config.topgg);
 client.activities = new DiscordTogether(client);
