@@ -36,6 +36,7 @@ options: [
     name: "channel",
     type: "CHANNEL",
     description: "Channel from which you want to Disconnect everyone.",
+    channelTypes: ["GUILD_VOICE"],
     required: false,
    },
 ], 

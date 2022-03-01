@@ -46,7 +46,7 @@ module.exports = {
     let channel = interaction.options.getChannel('channel');
     if(!channel) { channel = await interaction.guild.channels.create(`command-logs`, {
           type: 'GUILD_TEXT', 
-          reason: `Command Logs | by ${interaction.member.tag}`
+          reason: `Command Logs | by ${interaction.user.tag}`
         })}
     const success = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Command Logs enabled in <#${channel.id}>!**`)    
     await interaction.reply({ embeds: [success] })    

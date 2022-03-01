@@ -46,7 +46,7 @@ if(check) { return interaction.reply({ embeds: [already] }) }
 let channel = interaction.options.getChannel('channel');
 if(!channel) { channel = await interaction.guild.channels.create(`voice-logs`, {
       type: 'GUILD_TEXT', 
-      reason: `Voice Channel Logs | by ${interaction.member.tag}`
+      reason: `Voice Channel Logs | by ${interaction.user.tag}`
     })}
 const success = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice Channel Logs enabled in <#${channel.id}>!**`)    
 await interaction.reply({ embeds: [success] })    

@@ -37,6 +37,7 @@ module.exports = {
         type: "CHANNEL",
         description: "Channel from which you want to Unmute everyone.",
         required: false,
+        channelTypes: ["GUILD_VOICE"],
        },
     ], 
     run: async(client, interaction) => {

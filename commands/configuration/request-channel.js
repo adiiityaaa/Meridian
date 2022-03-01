@@ -58,7 +58,7 @@ let channel = interaction.options.getChannel('channel');
 if(!channel) { channel = await interaction.guild.channels.create(`request-channel`, {
       type: 'GUILD_TEXT', 
       rateLimitPerUser: 6,
-      reason: `Request Channel Setup | by ${interaction.member.tag}`
+      reason: `Request Channel Setup | by ${interaction.user.tag}`
     })}
 const btn = client.btns.request(client);
 await channel.send({ embeds: [embed2] }).then(x => { client.db.set(`isystemqembed_${interaction.guild.id}`, x.id) })

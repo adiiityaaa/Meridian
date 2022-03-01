@@ -30,6 +30,7 @@ module.exports = {
         name: "where_to_move",
         type: "CHANNEL",
         description: "Channel where you want to Move Member.",
+        channelTypes: ["GUILD_VOICE"],
         required: true,
        },              
        {
@@ -43,6 +44,7 @@ module.exports = {
         type: "CHANNEL",
         description: "Channel from which you want to Move everyone.",
         required: false,
+        channelTypes: ["GUILD_VOICE"],        
        },
     ], 
     run: async(client, interaction) => {

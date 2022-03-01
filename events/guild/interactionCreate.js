@@ -100,4 +100,4 @@ if(slashcmd.djOnly && djcheck) {
   console.log(error);
   const errorembed = client.embeds.error(client);
   await interaction.reply({ embeds: [errorembed], ephemeral: true });    
-}}}
+}}} 

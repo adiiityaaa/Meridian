@@ -36,6 +36,7 @@ module.exports = {
         name: "channel",
         type: "CHANNEL",
         description: "Channel from which you want to Deafen everyone.",
+        channelTypes: ["GUILD_VOICE"],
         required: false,
        },
     ], 
