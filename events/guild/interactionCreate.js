@@ -5,7 +5,10 @@ if(!interaction.guild) { return interaction.reply({ embeds: [server] }) }
  if(interaction.isCommand()) {     
  const slashcmd = client.commands.get(interaction.commandName)
  if(!slashcmd) { return; }    
- const cmdused = client.modules.embed(client, client.colors.green, `${client.emotes.info} | **${interaction.user.tag} has used ${interaction.commandName} Command.**`) 
+ const cmdused = new client.discord.MessageEmbed()
+ .setColor(client.colors.yellow) 
+ .setDescription(`${client.emotes.info} | **Meridian Command Logs**\n${client.emotes.parrow} ${interaction.user.tag} has used ${interaction.commandName} Command.`)
+ .setTimestamp()
  if(slashcmd.developerOnly) {
   const devsonly = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command restricted to Developers.**`)
   if(client.developers.include(interaction.user.id)) { return interaction.reply({ embeds: [devsonly] }) }
@@ -71,7 +74,10 @@ const novc = client.embeds.novoice(client);
 const customId = interaction.customId;
  const slashcmd = client.buttons.get(customId);
  if(!slashcmd) { return; }
- const btnused = client.modules.embed(client, client.colors.green, `${client.emotes.info} | **${interaction.user.tag} has used ${customId} Button.**`) 
+ const btnused = new client.discord.MessageEmbed()
+ .setColor(client.colors.yellow) 
+ .setDescription(`${client.emotes.info} | **Meridian Button Logs**\n${client.emotes.parrow} ${interaction.user.tag} has used ${customId} Button.`)
+ .setTimestamp() 
  if(slashcmd.voiceChannel) {
     const novc = client.embeds.novoice(client);
     if(!interaction.member.voice.channel) { interaction.reply({ embeds: [novc] })}
