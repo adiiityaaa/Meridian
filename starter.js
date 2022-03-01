@@ -18,14 +18,6 @@ client.manager = new Manager({
                { host: "node03.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fi: Finland" },
             ],
             plugins: [
-                new Deezer(),
-                new Facebook(),
-                new AppleMusic(),
-                new filter(),
-                new Spotify({
-                  clientID: config.spotifyID,
-                  clientSecret: config.spotifySecret,
-                })
             ],
             autoPlay: true,
             send(id, payload) {

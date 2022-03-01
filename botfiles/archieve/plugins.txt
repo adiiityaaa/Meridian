@@ -1,0 +1,8 @@
+                new Deezer(),
+                new Facebook(),
+                new AppleMusic(),
+                new filter(),
+                new Spotify({
+                  clientID: config.spotifyID,
+                  clientSecret: config.spotifySecret,
+                })
