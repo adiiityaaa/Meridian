@@ -16,7 +16,6 @@ const Statcord = require("statcord.js");
 client.manager = new Manager({
             nodes: [
                { host: "node03.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fi: Finland" },
-               { host: "node05.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_de: Germany" },
             ],
             plugins: [
                 new Deezer(),
