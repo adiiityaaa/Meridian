@@ -1,7 +1,7 @@
 module.exports = { 
     name: "undeafen",
     description: "Undeafen a user from Voice Channel.",
-    category: "Voice-Moderative",
+    category: "Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

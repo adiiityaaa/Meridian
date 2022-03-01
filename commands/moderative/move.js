@@ -1,7 +1,7 @@
 module.exports = { 
     name: "move",
     description: "Move a user from Voice Channel.",
-    category: "Voice-Moderative",
+    category: "Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

@@ -25,24 +25,24 @@ const infoarray = [];
 const musicarray = [];
 const playarray = [];    
 const utilarray = [];
-const voicearray = [];
+const modarray = [];
 client.commands.forEach(x => { 
 if(x.category === "Configuration") { configarray.push(`\`${x.name}\``) }
 else if(x.category === "Informative") { infoarray.push(`\`${x.name}\``) }
 else if(x.category === "Music") { musicarray.push(`\`${x.name}\``) }
 else if(x.category === "Playlist") { playarray.push(`\`${x.name}\``) }    
 else if(x.category === "Utilities") { utilarray.push(`\`${x.name}\``) } 
-else if(x.category === "Voice-Moderative") { voicearray.push(`\`${x.name}\``) }    
+else if(x.category === "Moderative") { modarray.push(`\`${x.name}\``) }    
 })
 const embed = new client.discord.MessageEmbed()
 .setColor(client.colors.green)
 .setDescription(`${client.emotes.music} | **${client.user.username} Help Menu!**\n\n${client.emotes.parrow} Prefix: \`/\`\n${client.emotes.parrow} Total Commands: ${client.commands.size}\n${client.emotes.parrow} Total Categories: 6`)
 .addField(`${client.emotes.dot} Configuration [${configarray.length}]:`, `${configarray.join(", ")}`)
 .addField(`${client.emotes.dot} Informative [${infoarray.length}]:`, `${infoarray.join(", ")}`)
+.addField(`${client.emotes.dot} Moderative [${modarray.length}]:`, `${modarray.join(", ")}`)
 .addField(`${client.emotes.dot} Music [${musicarray.length}]:`, `${musicarray.join(", ")}`)
 .addField(`${client.emotes.dot} Playlist [${playarray.length}]:`, `Coming Soon!`)
 .addField(`${client.emotes.dot} Utilities [${utilarray.length}]:`, `${utilarray.join(", ")}`)
-.addField(`${client.emotes.dot} Voice Moderative [${voicearray.length}]:`, `${voicearray.join(", ")}`)
 .setThumbnail(client.user.displayAvatarURL)        
 const button = new client.discord.MessageButton()
   .setStyle("LINK")
