@@ -8,6 +8,7 @@ const Spotify = require("better-erela.js-spotify").default;
 const { default: AppleMusic } = require("better-erela.js-apple");
 const config = require("./botfiles/config/settings.json");
 const { DiscordTogether } = require('discord-together');
+const { VoiceManager } = require("discord-voice");
 const { AutoPoster } = require("topgg-autoposter");
 const poster = AutoPoster(config.topgg, client)
 const Topgg = require(`@top-gg/sdk`)
@@ -32,6 +33,15 @@ client.manager = new Manager({
                 const guild = client.guilds.cache.get(id);
                 if (guild) guild.shard.send(payload);
             }});
+const manager = new VoiceManager(client, {
+       userStorage: "./botfiles/storage/voiceUsers.json",
+       configStorage: "./botfiles/storagevoiceConfigs.json",
+       checkMembersEvery: 5000,
+       default: {
+                  trackBots: false,
+                  trackAllChannels: true
+              }
+          });            
 client.emotes = require("./botfiles/config/emotes.json");
 client.settings = require("./botfiles/config/settings.json");
 client.colors = require("./botfiles/config/colors.json");
