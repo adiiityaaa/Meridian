@@ -8,7 +8,10 @@ const Spotify = require("better-erela.js-spotify").default;
 const { default: AppleMusic } = require("better-erela.js-apple");
 const config = require("./botfiles/config/settings.json");
 const { DiscordTogether } = require('discord-together');
-const { VoiceManager } = require("discord-voice");
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: config.openAI,
+});
 const { AutoPoster } = require("topgg-autoposter");
 const poster = AutoPoster(config.topgg, client)
 const Topgg = require(`@top-gg/sdk`)
@@ -34,6 +37,7 @@ client.embeds = require("./botfiles/functions/embeds.js");
 client.db = require("quick.db");
 client.voicedb = require("quick.db");
 client.discord = require("discord.js");
+client.openai = new OpenAIApi(configuration);
 client.topgg = new Topgg.Api(config.topgg);
 client.activities = new DiscordTogether(client);
 client.statcord = new Statcord.Client({ 
