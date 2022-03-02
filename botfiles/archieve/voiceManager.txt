@@ -1,0 +1,10 @@
+client.voiceManager = new VoiceManager(client, {
+       userStorage: "./botfiles/storage/voiceUsers.json",
+       configStorage: "./botfiles/storage/voiceConfigs.json",
+       checkMembersEvery: 5000,
+       default: {
+                  trackBots: false,
+                  trackAllChannels: true,
+                  xpAmountToAdd: 1
+              }
+          }); 

@@ -24,16 +24,6 @@ client.manager = new Manager({
                 const guild = client.guilds.cache.get(id);
                 if (guild) guild.shard.send(payload);
             }});
-client.voiceManager = new VoiceManager(client, {
-       userStorage: "./botfiles/storage/voiceUsers.json",
-       configStorage: "./botfiles/storage/voiceConfigs.json",
-       checkMembersEvery: 5000,
-       default: {
-                  trackBots: false,
-                  trackAllChannels: true,
-                  xpAmountToAdd: 1
-              }
-          });            
 client.emotes = require("./botfiles/config/emotes.json");
 client.settings = require("./botfiles/config/settings.json");
 client.colors = require("./botfiles/config/colors.json");
