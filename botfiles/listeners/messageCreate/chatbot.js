@@ -5,6 +5,6 @@ if(message.channel.id === client.db.get(`chatbot_${message.guild.id}`)) {
 const response = await client.openai.createCompletion("text-davinci-001", {
         prompt: message.content,
 });
-const responseContent = response.data.choices[0].text.split(":").at(-1).trim();
+const responseContent = response.data.choices[0].text;
 message.reply({ content: `${responseContent}`, allowedMentions: { repliedUser: false } })
 }}}

@@ -17,6 +17,10 @@ options: [
       required: true,
       choices: [
        {
+              name: "AI Chatbot",
+              value: "chatbot",
+       },                    
+       {
               name: "Command Logs",
               value: "cmdlogs",
        },
@@ -48,6 +52,7 @@ const option = interaction.options.getString("option");
 const evsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Everything has been Resetted.**`)
 const djsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **DJ Roles have been Resetted.**`)
 const invcsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **In VC Roles have been Resetted.**`)
+const chatsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **AI Chatbot has been Resetted.**`)
 const vclsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice Channel Logs have been Resetted.**`)
 const cmdsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Command Logs have been Resetted.**`)
 const issuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Request Channel has been Resetted.**`)
@@ -56,6 +61,7 @@ const djnot = client.modules.embed(client, client.colors.red, `${client.emotes.c
 const invcnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **In VC Roles have not been Set.**`)
 const vclnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Voice Channel Logs have not been Set.**`)
 const cmdnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command Logs have not been Set.**`)
+const chatnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **AI Chatbot has not been Set.**`)
 switch(option) {
     case "requestchannel":
     if(client.db.has(`isystemcheck_${interaction.guild.id}`)) {
@@ -80,12 +86,17 @@ switch(option) {
     case "cmdlogs":
     if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.db.delete(`cmdlogs_${interaction.guild.id}`) 
     interaction.reply({ embeds: [cmdsuccess] })} else { interaction.reply({ embeds: [cmdnot] }) }        
-    break;    
+    break; 
+    case "chatbot":
+    if(client.db.has(`chatbot_${interaction.guild.id}`)) { client.db.delete(`chatbot_${interaction.guild.id}`) 
+    interaction.reply({ embeds: [chatsuccess] })} else { interaction.reply({ embeds: [chatnot] }) }        
+    break;        
     case "everything":
     if(client.db.has(`djroles_${interaction.guild.id}`)) { client.db.delete(`djroles_${interaction.guild.id}`) }
     if(client.db.has(`invcroles_${interaction.guild.id}`)) { client.db.delete(`invcroles_${interaction.guild.id}`) }        
     if(client.db.has(`voicelogs_${interaction.guild.id}`)) { client.db.delete(`voicelogs_${interaction.guild.id}`) } 
-    if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.db.delete(`cmdlogs_${interaction.guild.id}`) }     
+    if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.db.delete(`cmdlogs_${interaction.guild.id}`) }  
+    if(client.db.has(`chatbot_${interaction.guild.id}`)) { client.db.delete(`chatbot_${interaction.guild.id}`) }     
     if(client.db.has(`isystemcheck_${interaction.guild.id}`)) {
     client.db.delete(`isystemcheck_${interaction.guild.id}`)    
     client.db.delete(`isystemchx_${interaction.guild.id}`)            
