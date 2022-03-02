@@ -34,6 +34,7 @@ async function rejoinplayer(client) {
 client.guilds.cache.forEach(guild => { 
 if(client.db.has(`247_${guild.id}`) === true) {
  const data = client.db.get(`playerdata_${guild.id}`)
+ if(!data) { return; }
  const player = client.manager.create({
    guild: guild.id,
    voiceChannel: data.vc,
