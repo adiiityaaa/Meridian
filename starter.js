@@ -24,13 +24,14 @@ client.manager = new Manager({
                 const guild = client.guilds.cache.get(id);
                 if (guild) guild.shard.send(payload);
             }});
-const manager = new VoiceManager(client, {
+client.voiceManager = new VoiceManager(client, {
        userStorage: "./botfiles/storage/voiceUsers.json",
        configStorage: "./botfiles/storage/voiceConfigs.json",
        checkMembersEvery: 5000,
        default: {
                   trackBots: false,
-                  trackAllChannels: true
+                  trackAllChannels: true,
+                  xpAmountToAdd: 1
               }
           });            
 client.emotes = require("./botfiles/config/emotes.json");

@@ -44,6 +44,18 @@ module.exports = {
     run: async(client, interaction) => {
     await interaction.deferReply().catch(() => {}); 
     const option = interaction.options.getString("option");
-    const member = interaction.option.getUser('member');
-    interaction.editReply("Coming Soon!")    
-}}
+    const member = interaction.option.getUser('member'); 
+    switch(option) {
+        case "add":
+            interaction.editReply("Coming Soon!")              
+        break;
+        case "remove":
+            interaction.editReply("Coming Soon!")  
+        break;
+        case "list":
+            interaction.editReply("Coming Soon!")  
+        break;
+        case "reset":
+            interaction.editReply("Coming Soon!")  
+        break;
+}}}
