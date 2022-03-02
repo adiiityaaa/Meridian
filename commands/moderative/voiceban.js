@@ -36,7 +36,7 @@ module.exports = {
        },
        {
         name: "member",
-        type: "MEMBER",
+        type: "USER",
         description: "Member to Add/Remove a Ban.",
         required: true,
        },
