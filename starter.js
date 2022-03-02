@@ -26,7 +26,7 @@ client.manager = new Manager({
             }});
 const manager = new VoiceManager(client, {
        userStorage: "./botfiles/storage/voiceUsers.json",
-       configStorage: "./botfiles/storagevoiceConfigs.json",
+       configStorage: "./botfiles/storage/voiceConfigs.json",
        checkMembersEvery: 5000,
        default: {
                   trackBots: false,
