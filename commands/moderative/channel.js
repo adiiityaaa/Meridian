@@ -43,14 +43,14 @@ module.exports = {
     const option = interaction.options.getString('option');
     switch(option) {
         case "lock": 
-        if(!channel.permissionsFor(nteraction.guild.id).has("CONNECT")) { return interaction.reply({ embeds: [alreadyl] }) }
+        if(!channel.permissionsFor(interaction.guild.id).has("CONNECT")) { return interaction.reply({ embeds: [alreadyl] }) }
         channel.permissionOverwrites.edit(interaction.guild.id, {
             CONNECT: false
         })
         interaction.reply({ embeds: [locked] })
         break;
         case "unlock":
-        if(channel.permissionsFor(nteraction.guild.id).has("CONNECT")) { return interaction.reply({ embeds: [alreadyu] }) }    
+        if(channel.permissionsFor(interaction.guild.id).has("CONNECT")) { return interaction.reply({ embeds: [alreadyu] }) }    
         channel.permissionOverwrites.edit(interaction.guild.id, {
             CONNECT: true
         })            
