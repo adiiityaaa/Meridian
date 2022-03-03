@@ -17,11 +17,11 @@ options: [
       required: true,
       choices: [
           {
-              name: "Enable",
+              name: "Enable the Voice-Logs",
               value: "enable",
           },
           {
-              name: "Disable",
+              name: "Disable the Voice-Logs",
               value: "disable",
           },
         ],

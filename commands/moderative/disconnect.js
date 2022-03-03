@@ -17,11 +17,11 @@ options: [
         required: true,
         choices: [
           {
-              name: "Specific Member",
+              name: "Disconnect a Specific Member",
               value: "member",
           },
           {
-              name: "Everyone in Voice",
+              name: "Disconnect Everyone in Voice",
               value: "everyone",
           },
        ],  

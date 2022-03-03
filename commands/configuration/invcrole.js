@@ -17,11 +17,11 @@ options: [
       required: true,
       choices: [
           {
-              name: "Add",
+              name: "Add an In-VC Role",
               value: "add",
           },
           {
-              name: "Remove",
+              name: "Remove an In-VC Role",
               value: "remove",
           },
        ],  

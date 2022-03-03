@@ -11,24 +11,25 @@ module.exports = {
     authorPerms: ["MANAGE_GUILD"],
     options: [
         {
-            name: "option",
+            name: "channel",
+            type: "CHANNEL",
+            description: "Channel to change Limit",
+            required: true,
+            channelTypes: ["GUILD_VOICE"],
+        },
+        {
+            name: "limit",
             type: "INTEGER",
             description: "The User limit to set.",
             required: true,  
-       },
-       {
-        name: "channel",
-        type: "CHANNEL",
-        description: "Channel to change Limit",
-        required: true,
-        channelTypes: ["GUILD_VOICE"],
        },
     ],
     run: async(client, interaction) => {
     const max = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Max Limit can be 99 Users.**`)   
     const channel = interaction.options.getChannel('channel');
-    const option = interaction.options.getInteger('option');
-    const embed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Set member limit to ${option}.`)
-    if(option > 99) { return interaction.reply({ embeds: [max] }) }
+    const option = interaction.options.getInteger('limit');
+    const embed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Set member limit to ${limit}.`)
+    if(limit > 99) { return interaction.reply({ embeds: [max] }) }
+    channel.setUserLimit(limit)
     interaction.reply({ embeds: [embed] })
 }}

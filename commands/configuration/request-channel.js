@@ -17,11 +17,11 @@ options: [
       required: true,
       choices: [
           {
-              name: "Enable",
+              name: "Enable the Request Channel",
               value: "enable",
           },
           {
-              name: "Disable",
+              name: "Disable the Request Channel",
               value: "disable",
           },
         ],

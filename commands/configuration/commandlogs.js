@@ -17,11 +17,11 @@ module.exports = {
           required: true,
           choices: [
               {
-                  name: "Enable",
+                  name: "Enable the Command Logs",
                   value: "enable",
               },
               {
-                  name: "Disable",
+                  name: "Disable the Command Logs",
                   value: "disable",
               },
             ],

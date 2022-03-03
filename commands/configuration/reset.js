@@ -17,31 +17,35 @@ options: [
       required: true,
       choices: [
        {
-              name: "AI Chatbot",
+              name: "Reset AI Chatbot",
               value: "chatbot",
        },                    
        {
-              name: "Command Logs",
+              name: "Reset Command Logs",
               value: "cmdlogs",
        },
        {
-              name: "DJ Roles",
+              name: "Reset DJ Roles",
               value: "djrole",
        },
        {
-              name: "In VC Roles",
+              name: "Reset In VC Roles",
               value: "invcrole",
+       },  
+       {
+              name: "Reset Join to Create",
+              value: "tempvc",
        },        
        {
-              name: "Request Channel",
+              name: "Reset Request Channel",
               value: "requestchannel",
        },  
        {
-              name: "Voice Channel Logs",
+              name: "Reset Voice Channel Logs",
               value: "voicelogs",
        },  
        {
-              name: "Everything",
+              name: "Reset Everything of the Server",
               value: "everything",
        },
      ],
@@ -56,12 +60,14 @@ const chatsuccess = client.modules.embed(client, client.colors.green, `${client.
 const vclsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice Channel Logs have been Resetted.**`)
 const cmdsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Command Logs have been Resetted.**`)
 const issuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Request Channel has been Resetted.**`)
+const tempsuccess = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Join to Create has been Resetted.**`)
 const isnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Request Channel has not been Set.**`)
 const djnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **DJ Roles have not been Set.**`)
 const invcnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **In VC Roles have not been Set.**`)
 const vclnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Voice Channel Logs have not been Set.**`)
 const cmdnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command Logs have not been Set.**`)
 const chatnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **AI Chatbot has not been Set.**`)
+const tempnot = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Join to Create has not been Set.**`)
 switch(option) {
     case "requestchannel":
     if(client.db.has(`isystemcheck_${interaction.guild.id}`)) {
@@ -83,6 +89,10 @@ switch(option) {
     if(client.db.has(`voicelogs_${interaction.guild.id}`)) { client.db.delete(`voicelogs_${interaction.guild.id}`) 
     interaction.reply({ embeds: [vclsuccess] })} else { interaction.reply({ embeds: [vclnot] }) }        
     break;
+    case "tempvc":
+    if(client.db.has(`tempvc_${interaction.guild.id}`)) { client.db.delete(`tempvc_${interaction.guild.id}`) 
+    interaction.reply({ embeds: [tempsuccess] })} else { interaction.reply({ embeds: [tempnot] }) }        
+    break;
     case "cmdlogs":
     if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.db.delete(`cmdlogs_${interaction.guild.id}`) 
     interaction.reply({ embeds: [cmdsuccess] })} else { interaction.reply({ embeds: [cmdnot] }) }        
@@ -95,6 +105,7 @@ switch(option) {
     if(client.db.has(`djroles_${interaction.guild.id}`)) { client.db.delete(`djroles_${interaction.guild.id}`) }
     if(client.db.has(`invcroles_${interaction.guild.id}`)) { client.db.delete(`invcroles_${interaction.guild.id}`) }        
     if(client.db.has(`voicelogs_${interaction.guild.id}`)) { client.db.delete(`voicelogs_${interaction.guild.id}`) } 
+    if(client.db.has(`tempvc_${interaction.guild.id}`)) { client.db.delete(`tempvc_${interaction.guild.id}`) }     
     if(client.db.has(`cmdlogs_${interaction.guild.id}`)) { client.db.delete(`cmdlogs_${interaction.guild.id}`) }  
     if(client.db.has(`chatbot_${interaction.guild.id}`)) { client.db.delete(`chatbot_${interaction.guild.id}`) }     
     if(client.db.has(`isystemcheck_${interaction.guild.id}`)) {

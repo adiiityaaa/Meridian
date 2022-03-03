@@ -17,11 +17,11 @@ module.exports = {
             required: true,
             choices: [
               {
-                  name: "Lock the Channel",
+                  name: "Lock the Voice Channel",
                   value: "lock",
               },
               {
-                  name: "Unlock the Channel",
+                  name: "Unlock the Voice Channel",
                   value: "unlock",
               },
            ],  

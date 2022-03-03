@@ -17,11 +17,11 @@ module.exports = {
           required: true,
           choices: [
               {
-                  name: "Enable the Chatbot",
+                  name: "Enable the AI Chatbot",
                   value: "enable",
               },
               {
-                  name: "Disable the Chatbot",
+                  name: "Disable the AI Chatbot",
                   value: "disable",
               },
             ],

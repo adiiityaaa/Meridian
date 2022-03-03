@@ -17,11 +17,11 @@ module.exports = {
             required: true,
             choices: [
               {
-                  name: "Specific Member",
+                  name: "Mute a Specific Member",
                   value: "member",
               },
               {
-                  name: "Everyone in Voice",
+                  name: "Mute Everyone in Voice",
                   value: "everyone",
               },
            ],  

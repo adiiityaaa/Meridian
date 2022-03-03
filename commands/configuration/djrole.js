@@ -17,11 +17,11 @@ options: [
       required: true,
       choices: [
           {
-              name: "Add",
+              name: "Add a DJ Role",
               value: "add",
           },
           {
-              name: "Remove",
+              name: "Remove a DJ Role",
               value: "remove",
           },
        ],  
