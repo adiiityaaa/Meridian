@@ -46,7 +46,7 @@ module.exports = {
     const nomember = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a member.**`)
     const option = interaction.options.getString("option");
     const member = interaction.options.getMember('member'); 
-    if(!member) { return interaction.editReply({ embeds: [nomember] }) }
+
     const alreadya = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Voice-Banned.**`)
     const alreadyn = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not Voice-Banned.**`)
     const added = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is now Voice-Banned.**`)
@@ -54,11 +54,13 @@ module.exports = {
     const reset = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice-Ban list has been resetted.**`)
     switch(option) {
         case "add":
+        if(!member) { return interaction.editReply({ embeds: [nomember] }) }
         if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadya] }) }
         client.voicedb.set(`voiceban_${interaction.guild.id}_${member.id}`, true)
         interaction.editReply({ embeds: [added] })
         break; 
         case "remove":
+        if(!member) { return interaction.editReply({ embeds: [nomember] }) }
         if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadyn] }) }
         client.voicedb.delete(`voiceban_${interaction.guild.id}_${member.id}`)
         interaction.editReply({ embeds: [removed] })
