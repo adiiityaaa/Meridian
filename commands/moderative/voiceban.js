@@ -38,13 +38,15 @@ module.exports = {
         name: "member",
         type: "USER",
         description: "Member to Add/Remove a Ban.",
-        required: true,
+        required: false,
        },
     ],
     run: async(client, interaction) => {
     await interaction.deferReply().catch(() => {});    
+    const nomember = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a member.**`)
     const option = interaction.options.getString("option");
-    const member = interaction.option.getUser('member'); 
+    const member = interaction.option.getMember('member'); 
+    if(!member) { return interaction.editReply({ embeds: [nomember] }) }
     const alreadya = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Voice-Banned.**`)
     const alreadyn = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not Voice-Banned.**`)
     const added = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is now Voice-Banned.**`)
