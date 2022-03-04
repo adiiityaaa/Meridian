@@ -55,19 +55,19 @@ module.exports = {
     switch(option) {
         case "add":
         if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadya] }) }
-        client.db.set(`voiceban_${interaction.guild.id}_${member.id}`, true)
+        client.voicedb.set(`voiceban_${interaction.guild.id}_${member.id}`, true)
         interaction.editReply({ embeds: [added] })
         break; 
         case "remove":
         if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadyn] }) }
-        client.db.delete(`voiceban_${interaction.guild.id}_${member.id}`)
+        client.voicedb.delete(`voiceban_${interaction.guild.id}_${member.id}`)
         interaction.editReply({ embeds: [removed] })
         break;
         case "list":
         interaction.editReply("Coming Soon!")  
         break;
         case "reset":
-        client.voicedb.all().filter(d => d.ID.startsWith(`voiceban_${interaction.guild.id}`)).forEach(d => db.delete(d.ID))
+        client.voicedb.all().filter(d => d.ID.startsWith(`voiceban_${interaction.guild.id}`)).forEach(d => client.voicedb.delete(d.ID))
         interaction.editReply({ embeds: [reset] })
         break;
 }}}
