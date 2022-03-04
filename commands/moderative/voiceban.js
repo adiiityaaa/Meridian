@@ -45,17 +45,27 @@ module.exports = {
     await interaction.deferReply().catch(() => {}); 
     const option = interaction.options.getString("option");
     const member = interaction.option.getUser('member'); 
+    const alreadya = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Voice-Banned.**`)
+    const alreadyn = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not Voice-Banned.**`)
+    const added = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is now Voice-Banned.**`)
+    const removed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is now Voice-Unbanned.**`)
+    const reset = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice-Ban list has been resetted.**`)
     switch(option) {
         case "add":
-            interaction.editReply("Coming Soon!")              
-        break;
+        if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.reply({ embeds: [alreadya] }) }
+        client.db.set(`voiceban_${interaction.guild.id}_${member.id}`)
+        await interaction.editReply({ embeds: [added] }).catch(() => {})
+        break; 
         case "remove":
-            interaction.editReply("Coming Soon!")  
+        if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.reply({ embeds: [alreadyn] }) }
+        client.db.delete(`voiceban_${interaction.guild.id}_${member.id}`)
+        await interaction.editReply({ embeds: [removed] }).catch(() => {})
         break;
         case "list":
-            interaction.editReply("Coming Soon!")  
+        interaction.editReply("Coming Soon!")  
         break;
         case "reset":
-            interaction.editReply("Coming Soon!")  
+        client.voicedb.all().filter(d => d.ID.startsWith(`voiceban_${interaction.guild.id}`)).forEach(d => db.delete(d.ID))
+        await interaction.editReply({ embeds: [reset] }).catch(() => {})  
         break;
 }}}
