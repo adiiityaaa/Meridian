@@ -59,7 +59,7 @@ module.exports = {
         case "remove":
         if(!member) { return interaction.editReply({ embeds: [nomember] }) }
         const alreadyn = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not Voice-Banned.**`)   
-        const removed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is now Voice-Unbanned.**`)        
+        const removed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **<@${member.id}> is no more Voice-Banned.**`)        
         if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadyn] }) }
         client.voicedb.delete(`voiceban_${interaction.guild.id}_${member.id}`)
         interaction.editReply({ embeds: [removed] })
