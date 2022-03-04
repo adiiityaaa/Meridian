@@ -55,7 +55,7 @@ module.exports = {
     switch(option) {
         case "add":
         if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadya] }) }
-        client.db.set(`voiceban_${interaction.guild.id}_${member.id}`)
+        client.db.set(`voiceban_${interaction.guild.id}_${member.id}`, true)
         interaction.editReply({ embeds: [added] })
         break; 
         case "remove":
