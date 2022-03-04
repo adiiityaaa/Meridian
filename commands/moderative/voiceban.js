@@ -45,7 +45,7 @@ module.exports = {
     await interaction.deferReply().catch(() => {});    
     const nomember = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please provide a member.**`)
     const option = interaction.options.getString("option");
-    const member = interaction.option.getMember('member'); 
+    const member = interaction.options.getMember('member'); 
     if(!member) { return interaction.editReply({ embeds: [nomember] }) }
     const alreadya = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Voice-Banned.**`)
     const alreadyn = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is not Voice-Banned.**`)
