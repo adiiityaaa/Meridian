@@ -42,7 +42,7 @@ module.exports = {
        },
     ],
     run: async(client, interaction) => {
-    await interaction.deferReply().catch(() => {}); 
+    await interaction.deferReply().catch(() => {});    
     const option = interaction.options.getString("option");
     const member = interaction.option.getUser('member'); 
     const alreadya = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **<@${member.id}> is already Voice-Banned.**`)
@@ -52,20 +52,20 @@ module.exports = {
     const reset = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Voice-Ban list has been resetted.**`)
     switch(option) {
         case "add":
-        if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.reply({ embeds: [alreadya] }) }
+        if(client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadya] }) }
         client.db.set(`voiceban_${interaction.guild.id}_${member.id}`)
-        await interaction.editReply({ embeds: [added] }).catch(() => {})
+        interaction.editReply({ embeds: [added] })
         break; 
         case "remove":
-        if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.reply({ embeds: [alreadyn] }) }
+        if(!client.voicedb.has(`voiceban_${interaction.guild.id}_${member.id}`)) { return interaction.editReply({ embeds: [alreadyn] }) }
         client.db.delete(`voiceban_${interaction.guild.id}_${member.id}`)
-        await interaction.editReply({ embeds: [removed] }).catch(() => {})
+        interaction.editReply({ embeds: [removed] })
         break;
         case "list":
         interaction.editReply("Coming Soon!")  
         break;
         case "reset":
         client.voicedb.all().filter(d => d.ID.startsWith(`voiceban_${interaction.guild.id}`)).forEach(d => db.delete(d.ID))
-        await interaction.editReply({ embeds: [reset] }).catch(() => {})  
+        interaction.editReply({ embeds: [reset] })
         break;
 }}}
