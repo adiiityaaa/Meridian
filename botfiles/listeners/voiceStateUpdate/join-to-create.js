@@ -1,6 +1,7 @@
 module.exports.run = async(client, oS, nS) => {
     if(nS.member.bot) { return; }
     if(client.db.has(`tempvc_${nS.guild.id}`)) {
+    if(client.db.has(`voiceban_${nS.guild.id}_${nS.member.id}`)) { return; }
     const data = client.db.get(`tempvc_${nS.guild.id}`);
     if(!oS.channel && nS.channel && nS.channelId === data.channel) {
     const num = data.limit;
