@@ -65,6 +65,8 @@ module.exports = {
         interaction.editReply({ embeds: [removed] })
         break;
         case "list":
+        const array = []            
+        const list = client.voicedb.all().filter(d => d.ID.startsWith(`voiceban_${interaction.guild.id}`)).forEach(d => array.push(d.ID))            
         interaction.editReply("Coming Soon!")  
         break;
         case "reset":

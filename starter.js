@@ -18,7 +18,9 @@ const Topgg = require(`@top-gg/sdk`)
 const Statcord = require("statcord.js");
 client.manager = new Manager({
             nodes: [
-               { host: "node03.lavalink.eu", port: 2333, retryDelay: 5000, password: "Raccoon", identifier: "Node | :flag_fi: Finland" },
+               { host: "connect.freelavalink.ga", port: 443, retryDelay: 5000, password: "www.freelavalink.ga", identifier: "Node 1", secure: true },
+               { host: "lavalink.cobaltonline.net", port: 443, retryDelay: 5000, password: "cobaltlavanode23@", identifier: "Node 2", secure: true },
+               { host: "lavalink.scpcl.site", port: 443, retryDelay: 5000, password: "lvserver", identifier: "Node 3", secure: true },
             ],
             plugins: [
             ],
