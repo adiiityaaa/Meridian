@@ -4,8 +4,8 @@ if(client.db.has(`chatbot_${message.guild.id}`)) {
 if(message.channel.id === client.db.get(`chatbot_${message.guild.id}`)) {
 const response = await client.openai.createCompletion("text-davinci-001", {
         prompt: message.content,
-        temperature: 0.7,
-        max_tokens: 64,
+        temperature: 0.9,
+        max_tokens: 128,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
