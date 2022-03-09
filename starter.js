@@ -18,11 +18,13 @@ const Topgg = require(`@top-gg/sdk`)
 const Statcord = require("statcord.js");
 client.manager = new Manager({
             nodes: [
-               { host: "connect.freelavalink.ga", port: 443, retryDelay: 5000, password: "www.freelavalink.ga", identifier: "Node 1", secure: true },
-               { host: "lavalink.scpcl.site", port: 443, retryDelay: 5000, password: "lvserver", identifier: "Node 2", secure: true },
+              { host: "node3.ultimatesrv.com", port: 21249, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Germany" },
+              { host: "pl01.optik.host", port: 28330, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Poland" },
             ],
             plugins: [
-            ],
+              new Facebook(),
+              new AppleMusic(),
+          ],
             autoPlay: true,
             send(id, payload) {
                 const guild = client.guilds.cache.get(id);
