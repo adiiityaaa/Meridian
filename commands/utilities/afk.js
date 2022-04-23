@@ -1,6 +1,6 @@
 module.exports = {
 name: "afk",
-description: "Set a Global or Server AFK Status!",
+description: "Set a AFK Status!",
 category: "Utilities",
 type: 1,
 developerOnly: false,
