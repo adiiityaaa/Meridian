@@ -46,8 +46,8 @@ let tempchx;
 let tempdata = client.db.fetch(`tempvc_${interaction.guild.id}`);
 if(!tempdata) { tempchx = "> None"; }
 if(tempdata) { let tempchannel = client.channels.cache.get(tempdata.channel);
-if(!tempchannel) { tempchx = "> None"; } }
-else { tempchx = `> Channel: ${tempchannel}\n> Limit: ${data.limit}`; } 
+if(!tempchannel) { tempchx = "> None"; } 
+else { tempchx = `> Channel: ${tempchannel}\n> Limit: ${data.limit}`; } }
 const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **Command Logs:**\n${cmdchx}\n\n${client.emotes.dot} **AI Chatbot:**\n${chatchx}\n\n${client.emotes.dot} **Join to Create:**\n${tempchx}\n\n${client.emotes.dot} **DJ Roles:**\n${djdata}\n\n${client.emotes.dot} **In VC Roles:**\n${invcdata}`)    
 await interaction.reply({ embeds: [embed] })
 }}
