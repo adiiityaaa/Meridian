@@ -19,7 +19,7 @@ const Statcord = require("statcord.js");
 client.manager = new Manager({
             nodes: [
               { host: "node3.ultimatesrv.com", port: 21249, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Germany" },
-              { host: "pl01.optik.host", port: 28330, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Poland" },
+              { host: "fi01.optik.host", port: 28330, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Finland" },
             ],
             plugins: [
               new Facebook(),
