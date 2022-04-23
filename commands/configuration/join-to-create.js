@@ -64,7 +64,7 @@ module.exports = {
      channel: channel,
      limit: number
     }
-    await client.db.set(`tempvc_${interaction.guild.id}`, data)
+    client.db.set(`tempvc_${interaction.guild.id}`, data)
        break;
         case "disable":
         if(!client.db.has(`tempvc_${interaction.guild.id}`)) { return interaction.reply({ embeds: [noalready] }) }
