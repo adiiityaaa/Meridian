@@ -40,6 +40,7 @@ client.embeds = require("./botfiles/functions/embeds.js");
 client.db = require("quick.db");
 client.voicedb = require("quick.db");
 client.tempdb = require("quick.db");
+client.reminderdb = require("quick.db");
 client.discord = require("discord.js");
 client.openai = new OpenAIApi(configuration);
 client.topgg = new Topgg.Api(config.topgg);
