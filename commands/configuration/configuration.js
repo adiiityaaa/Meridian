@@ -26,23 +26,27 @@ if(!ischannel) { ischx = "> None"; }
 else { ischx = `> ${ischannel}`; }} 
 let vclchx;
 let vcldata = client.db.fetch(`voicelogs_${interaction.guild.id}`);
+if(!vcldata) { vclchx = "> None"; }
 let vclchannel = client.channels.cache.get(vcldata);
-if(!vclchannel || !vcldata) { vclchx = "> None"; }
+if(!vclchannel) { vclchx = "> None"; }
 else { vclchx = `> ${vclchannel}`; } 
 let cmdchx;
 let cmddata = client.db.fetch(`cmdlogs_${interaction.guild.id}`);
+if(!cmddata) { cmdchx = "> None"; }
 let cmdchannel = client.channels.cache.get(cmddata);
-if(!cmdchannel || !cmddata) { cmdchx = "> None"; }
+if(!cmdchannel) { cmdchx = "> None"; }
 else { cmdchx = `> ${cmdchannel}`; } 
 let chatchx;
 let chatdata = client.db.fetch(`chatbot_${interaction.guild.id}`);
+if(!chatdata) { chatchx = "> None"; }
 let chatchannel = client.channels.cache.get(chatdata);
-if(!chatchannel || !chatdata) { chatchx = "> None"; }
+if(!chatchannel) { chatchx = "> None"; }
 else { chatchx = `> ${chatchannel}`; } 
 let tempchx;
 let tempdata = client.db.fetch(`tempvc_${interaction.guild.id}`);
+if(!tempdata) { tempchx = "> None"; }
 let tempchannel = client.channels.cache.get(tempdata.channel);
-if(!tempchannel || !tempdata) { chatchx = "> None"; }
+if(!tempchannel) { tempchx = "> None"; }
 else { tempchx = `> Channel: ${tempchannel}\n> Limit: ${data.limit}`; } 
 const embed = client.modules.embed(client, client.colors.gold, `${client.emotes.config} | **${interaction.guild.name} Configuration**\n\n${client.emotes.dot} **Request Channel:**\n${ischx}\n\n${client.emotes.dot} **Voice Channel Logs:**\n${vclchx}\n\n${client.emotes.dot} **Command Logs:**\n${cmdchx}\n\n${client.emotes.dot} **AI Chatbot:**\n${chatchx}\n\n${client.emotes.dot} **Join to Create:**\n${tempchx}\n\n${client.emotes.dot} **DJ Roles:**\n${djdata}\n\n${client.emotes.dot} **In VC Roles:**\n${invcdata}`)    
 await interaction.reply({ embeds: [embed] })
