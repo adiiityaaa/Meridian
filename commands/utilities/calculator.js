@@ -10,9 +10,10 @@ module.exports = {
     djOnly: false,    
     clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
     authorPerms: [""],   
-run: async(client, interaction) => {   
+run: async(client, interaction) => {
+const message = interaction.reply(`${client.emotes.loading} | Initiating Calculator...`)      
 await Calculator({
-    message: interaction.message,
+    message: message,
     embed: {
         title: 'Meridian Calculator',
         color: '#F9F295',
