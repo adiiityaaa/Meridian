@@ -13,7 +13,14 @@ module.exports = {
     authorPerms: [""],
     run: async(client, interaction) => {
     const nonsfw = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command must be used in NSFW Channel.**`)
-    if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nonsfw] }) }    
+    const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
+    if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nonsfw] }) }   
+    try {
+
+    } catch(e) {
+       console.log(e)
+       interaction.reply({ embeds: [error] })
+    }      
     }
    }
    

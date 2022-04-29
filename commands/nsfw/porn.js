@@ -12,8 +12,15 @@ module.exports = {
     clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
     authorPerms: [""],
     run: async(client, interaction) => {
+        const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
         const nonsfw = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Command must be used in NSFW Channel.**`)
-        if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nonsfw] }) }            
+        if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nonsfw] }) }     
+        try {
+
+        } catch(e) {
+            console.log(e)
+            interaction.reply({ embeds: [error] })
+         }         
     }
    }
    
