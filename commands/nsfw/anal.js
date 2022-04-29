@@ -1,3 +1,5 @@
+const { get } = require('axios');
+
 module.exports = {
     name: "",
     category: "NSFW",
