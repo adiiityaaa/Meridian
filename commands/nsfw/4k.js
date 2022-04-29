@@ -1,5 +1,5 @@
 module.exports = {
-    name: "",
+    name: "4k",
     category: "NSFW",
     description: "",
     type: 1,
