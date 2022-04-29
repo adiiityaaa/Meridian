@@ -9,13 +9,13 @@ developerOnly: false,
 voiceChannel: false,
 mutualChannel: false,
 djOnly: false,    
-clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "CREATE_INSTANT_INVITE"],
+clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
 authorPerms: [""],    
 options: [
       {
       name: "type",
       type: "STRING",
-      description: "Type of NSFW",
+      description: "Type of Image",
       required: true,
       choices: [
           {
@@ -102,7 +102,7 @@ case "meme":
     interaction.reply({ embeds: [membed] }) 
 break;
 case "neko":
-    let njson = get(`https://www.reddit.com/r/Earthporn/random/.json`);  
+    let njson = get(`https://neko-love.xyz/api/v1/neko`);  
     njson = njson.data;
     const nembed = new client.discord.MessageEmbed()
     .setImage(njson.url)

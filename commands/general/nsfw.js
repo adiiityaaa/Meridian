@@ -9,7 +9,7 @@ developerOnly: false,
 voiceChannel: false,
 mutualChannel: false,
 djOnly: false,    
-clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS", "CREATE_INSTANT_INVITE"],
+clientPerms: ["EMBED_LINKS", "USE_EXTERNAL_EMOJIS"],
 authorPerms: [""],    
 options: [
       {
