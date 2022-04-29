@@ -50,6 +50,7 @@ options: [
     },
   ],    
 run: async(client, interaction) => { 
+    await interaction.deferReply().catch(() => {});     
 const type = interaction.options.getString('type')
 switch(type) {
 case "bike":
@@ -59,7 +60,7 @@ case "bike":
     const bembed = new client.discord.MessageEmbed()
     .setImage(bjson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [bembed] })
+    interaction.editReply({ embeds: [bembed] })
 break;
 case "car":
     let cjson = get(`https://www.reddit.com/r/carporn/random/.json`);  
@@ -68,7 +69,7 @@ case "car":
     const cembed = new client.discord.MessageEmbed()
     .setImage(cjson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [cembed] })    
+    interaction.editReply({ embeds: [cembed] })    
 break;
 case "earth":
     let ejson = get(`https://www.reddit.com/r/Earthporn/random/.json`);  
@@ -77,7 +78,7 @@ case "earth":
     const eembed = new client.discord.MessageEmbed()
     .setImage(ejson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [eembed] })     
+    interaction.editReply({ embeds: [eembed] })     
 break;
 case "kpop":
     let ktag = ["kpopGirlsMob", "kpics"]
@@ -88,7 +89,7 @@ case "kpop":
     const kembed = new client.discord.MessageEmbed()
     .setImage(kjson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [kembed] })     
+    interaction.editReply({ embeds: [kembed] })     
 break;
 case "meme":
     let mtag = ["memes", "me_irl", "dankmemes", "comedyheaven", "Animemes"]
@@ -99,7 +100,7 @@ case "meme":
     const membed = new client.discord.MessageEmbed()
     .setImage(mjson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [membed] }) 
+    interaction.editReply({ embeds: [membed] }) 
 break;
 case "neko":
     let njson = get(`https://neko-love.xyz/api/v1/neko`);  
@@ -107,7 +108,7 @@ case "neko":
     const nembed = new client.discord.MessageEmbed()
     .setImage(njson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [nembed] }) 
+    interaction.editReply({ embeds: [nembed] }) 
 break; 
 case "truck":
     let tjson = get(`https://www.reddit.com/r/Trucks/random/.json`);  
@@ -116,6 +117,6 @@ case "truck":
     const tembed = new client.discord.MessageEmbed()
     .setImage(tjson.url)
     .setColor(client.colors.images)
-    interaction.reply({ embeds: [tembed] })     
+    interaction.editReply({ embeds: [tembed] })     
 break;
 }}}  

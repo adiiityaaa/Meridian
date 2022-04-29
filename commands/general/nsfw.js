@@ -78,6 +78,7 @@ options: [
       },
   ],    
 run: async(client, interaction) => { 
+    await interaction.deferReply().catch(() => {});     
 const nocat = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **Please specify Category of NSFW.**`)
 const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
 const nnsfw = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **This Command must be used in NSFW Channel.**`)
@@ -91,15 +92,15 @@ try {
     const embed = new client.discord.MessageEmbed()
     .setImage(r.data.message)
     .setColor(client.colors.nsfw)    
-    interaction.reply({ embeds: [embed] })
+    interaction.editReply({ embeds: [embed] })
     })
 } catch(e) {
  console.log(e)
- interaction.reply({ embeds: [error] })
+ interaction.editReply({ embeds: [error] })
 } 
 break;
 case "anal":
-if(!cate) { return interaction.reply({ embeds: [nocat] }) }    
+if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }    
 switch(cate) {
 case "human":
     try {
@@ -107,11 +108,11 @@ case "human":
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
     } catch(e) {
         console.log(e)
-        interaction.reply({ embeds: [error] })
+         interaction.editReply({ embeds: [error] })
     }     
 break;
 case "hentai":
@@ -120,17 +121,17 @@ case "hentai":
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
     } catch(e) {
         console.log(e)
-        interaction.reply({ embeds: [error] })
+        interaction.editReply({ embeds: [error] })
     }     
 break;        
 }
 break;
 case "ass":
-if(!cate) { return interaction.reply({ embeds: [nocat] }) }  
+if(!cate) { return interaction.editReply({ embeds: [nocat] }) }  
 switch(cate) {
     case "human":
         try {
@@ -138,11 +139,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;
     case "hentai":
@@ -151,17 +152,17 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;        
     }  
 break;
 case "boobs":
-if(!cate) { return interaction.reply({ embeds: [nocat] }) }    
+if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }    
 switch(cate) {
     case "human":
         try {
@@ -169,11 +170,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;
     case "hentai":
@@ -182,11 +183,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;        
     }
@@ -197,11 +198,11 @@ case "gonewild":
         const embed = new client.discord.MessageEmbed()
         .setImage(r.data.message)
         .setColor(client.colors.nsfw)    
-        interaction.reply({ embeds: [embed] })
+        interaction.editReply({ embeds: [embed] })
         })
     } catch(e) {
      console.log(e)
-     interaction.reply({ embeds: [error] })
+     interaction.editReply({ embeds: [error] })
     }   
 break;
 case "hentai":
@@ -210,15 +211,15 @@ case "hentai":
         const embed = new client.discord.MessageEmbed()
         .setImage(r.data.message)
         .setColor(client.colors.nsfw)    
-        interaction.reply({ embeds: [embed] })
+        interaction.editReply({ embeds: [embed] })
         })
     } catch(e) {
      console.log(e)
-     interaction.reply({ embeds: [error] })
+     interaction.editReply({ embeds: [error] })
     }
 break;
 case "neko":
-if(!cate) { return interaction.reply({ embeds: [nocat] }) }    
+if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }    
 switch(cate) {
     case "human":
         try {
@@ -226,11 +227,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;
     case "hentai":
@@ -239,11 +240,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;        
     }
@@ -254,11 +255,11 @@ case "porn":
         const embed = new client.discord.MessageEmbed()
         .setImage(r.data.message)
         .setColor(client.colors.nsfw)    
-        interaction.reply({ embeds: [embed] })
+        interaction.editReply({ embeds: [embed] })
         })
     } catch(e) {
      console.log(e)
-     interaction.reply({ embeds: [error] })
+     interaction.editReply({ embeds: [error] })
     }
 break;
 case "pussy":
@@ -267,15 +268,15 @@ case "pussy":
         const embed = new client.discord.MessageEmbed()
         .setImage(r.data.message)
         .setColor(client.colors.nsfw)    
-        interaction.reply({ embeds: [embed] })
+        interaction.editReply({ embeds: [embed] })
         })
     } catch(e) {
      console.log(e)
-     interaction.reply({ embeds: [error] })
+     interaction.editReply({ embeds: [error] })
     }
 break;
 case "thighs":
-if(!cate) { return interaction.reply({ embeds: [nocat] }) }    
+if(!cate) { return interaction.editReply({ embeds: [nocat] }) }    
 switch(cate) {
     case "human":
         try {
@@ -283,11 +284,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;
     case "hentai":
@@ -296,11 +297,11 @@ switch(cate) {
             const embed = new client.discord.MessageEmbed()
             .setImage(r.data.message)
             .setColor(client.colors.nsfw)    
-            interaction.reply({ embeds: [embed] })
+            interaction.editReply({ embeds: [embed] })
             })
         } catch(e) {
             console.log(e)
-            interaction.reply({ embeds: [error] })
+            interaction.editReply({ embeds: [error] })
         }     
     break;        
     }

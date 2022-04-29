@@ -50,6 +50,7 @@ options: [
     },
   ],    
 run: async(client, interaction) => { 
+    await interaction.deferReply().catch(() => {});     
 const type = interaction.options.getString('type')
 switch(type) {
     case "cry":
@@ -58,7 +59,7 @@ switch(type) {
         const cembed = new client.discord.MessageEmbed()
         .setImage(cjson.url)
         .setColor(client.colors.actions)
-        interaction.reply({ embeds: [cembed] }) 
+        interaction.editReply({ embeds: [cembed] }) 
     break; 
     case "hug":
     let hjson = get(`https://neko-love.xyz/api/v1/hug`);  
@@ -66,7 +67,7 @@ switch(type) {
     const hembed = new client.discord.MessageEmbed()
     .setImage(hjson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [hembed] }) 
+    interaction.editReply({ embeds: [hembed] }) 
 break; 
 case "kiss":
     let kjson = get(`https://neko-love.xyz/api/v1/kiss`);  
@@ -74,7 +75,7 @@ case "kiss":
     const kembed = new client.discord.MessageEmbed()
     .setImage(kjson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [kembed] }) 
+    interaction.editReply({ embeds: [kembed] }) 
 break; 
 case "pat":
     let pajson = get(`https://neko-love.xyz/api/v1/pat`);  
@@ -82,7 +83,7 @@ case "pat":
     const paembed = new client.discord.MessageEmbed()
     .setImage(pajson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [paembed] }) 
+    interaction.editReply({ embeds: [paembed] }) 
 break; 
 case "punch":
     let pujson = get(`https://neko-love.xyz/api/v1/punch`);  
@@ -90,7 +91,7 @@ case "punch":
     const puembed = new client.discord.MessageEmbed()
     .setImage(pujson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [puembed] }) 
+    interaction.editReply({ embeds: [puembed] }) 
 break; 
 case "slap":
     let sljson = get(`https://neko-love.xyz/api/v1/slap`);  
@@ -98,7 +99,7 @@ case "slap":
     const slembed = new client.discord.MessageEmbed()
     .setImage(sljson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [slembed] }) 
+    interaction.editReply({ embeds: [slembed] }) 
 break; 
 case "neko":
     let njson = get(`https://neko-love.xyz/api/v1/smug`);  
@@ -106,6 +107,6 @@ case "neko":
     const nembed = new client.discord.MessageEmbed()
     .setImage(njson.url)
     .setColor(client.colors.actions)
-    interaction.reply({ embeds: [nembed] }) 
+    interaction.editReply({ embeds: [nembed] }) 
 break; 
 }}}  
