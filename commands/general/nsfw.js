@@ -1,8 +1,8 @@
 const { get } = require('axios');
 
 module.exports = {
-name: "activity",
-description: "Start an activity in the Voice Channel!",
+name: "nsfw",
+description: "Displays NSFW Content",
 category: "General",
 type: 1,
 developerOnly: false,
@@ -19,44 +19,44 @@ options: [
       required: true,
       choices: [
           {
-              name: "Awkword",
-              value: "awkword",
+              name: "4k",
+              value: "4k",
           },
           {
-              name: "Betrayal",
-              value: "betrayal",
+              name: "Anal",
+              value: "anal",
           },
           {
-              name: "Chess",
-              value: "chess",
+              name: "Ass",
+              value: "ass",
           },
           {
-              name: "Doodlecrew",
-              value: "doodlecrew",
+              name: "Boobs",
+              value: "boobs",
           },
           {
-              name: "Fishington",
-              value: "fishington",
+              name: "Gonewild",
+              value: "gonewild",
           },
           {
-              name: "Lettertile",
-              value: "lettertile",
+              name: "Hentai",
+              value: "hentai",
           },
           {
-              name: "Poker",
-              value: "poker",
+              name: "Neko",
+              value: "neko",
           },
           {
-              name: "Puttparty",
-              value: "puttparty",
+              name: "Porn",
+              value: "porn",
           },
           {
-              name: "Spellcast",
-              value: "spellcast",
+              name: "Pussy",
+              value: "pussy",
           },
           {
-              name: "wordsnack",
-              value: "wordsnack",
+              name: "Thighs",
+              value: "thighs",
           },
       ],
     },
