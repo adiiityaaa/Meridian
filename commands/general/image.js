@@ -54,7 +54,7 @@ run: async(client, interaction) => {
 const type = interaction.options.getString('type')
 switch(type) {
 case "bike":
-    let bjson = get(`https://www.reddit.com/r/MotorcyclePorn/random/.json`);  
+    let bjson = get(`https://www.reddit.com/r/MotorcyclePorn/random/.json`).then((res) => res.json());  
     bjson = bjson.data;
     bjson = bjson[0].data.children[0].data;  
     const bembed = new client.discord.MessageEmbed()
@@ -63,7 +63,7 @@ case "bike":
     interaction.editReply({ embeds: [bembed] })
 break;
 case "car":
-    let cjson = get(`https://www.reddit.com/r/carporn/random/.json`);  
+    let cjson = get(`https://www.reddit.com/r/carporn/random/.json`).then((res) => res.json());  
     cjson = cjson.data;
     cjson = cjson[0].data.children[0].data;  
     const cembed = new client.discord.MessageEmbed()
@@ -72,7 +72,7 @@ case "car":
     interaction.editReply({ embeds: [cembed] })    
 break;
 case "earth":
-    let ejson = get(`https://www.reddit.com/r/Earthporn/random/.json`);  
+    let ejson = get(`https://www.reddit.com/r/Earthporn/random/.json`).then((res) => res.json());  
     ejson = ejson.data;
     ejson = ejson[0].data.children[0].data;  
     const eembed = new client.discord.MessageEmbed()
@@ -83,7 +83,7 @@ break;
 case "kpop":
     let ktag = ["kpopGirlsMob", "kpics"]
     ktag = ktag[Math.floor(Math.random() * ktag.length)]
-    let kjson = get(`https://www.reddit.com/r/${ktag}/random/.json`) 
+    let kjson = get(`https://www.reddit.com/r/${ktag}/random/.json`).then((res) => res.json()); 
     kjson = kjson.data;
     kjson = kjson[0].data.children[0].data;  
     const kembed = new client.discord.MessageEmbed()
@@ -94,7 +94,7 @@ break;
 case "meme":
     let mtag = ["memes", "me_irl", "dankmemes", "comedyheaven", "Animemes"]
     mtag = mtag[Math.floor(Math.random() * mtag.length)]
-    let mjson = get(`https://www.reddit.com/r/${tag}/random/.json`);  
+    let mjson = get(`https://www.reddit.com/r/${tag}/random/.json`).then((res) => res.json());  
     mjson = mjson.data;
     mjson = mjson[0].data.children[0].data;  
     const membed = new client.discord.MessageEmbed()
@@ -104,15 +104,13 @@ case "meme":
 break;
 case "neko":
     let njson = get(`https://neko-love.xyz/api/v1/neko`);  
-    njson = njson.data;
     const nembed = new client.discord.MessageEmbed()
-    .setImage(njson.url)
+    .setImage(njson.data.url)
     .setColor(client.colors.images)
     interaction.editReply({ embeds: [nembed] }) 
 break; 
 case "truck":
-    let tjson = get(`https://www.reddit.com/r/Trucks/random/.json`);  
-    tjson = tjson.data;
+    let tjson = get(`https://www.reddit.com/r/Trucks/random/.json`).then((res) => res.json());
     tjson = tjson[0].data.children[0].data;  
     const tembed = new client.discord.MessageEmbed()
     .setImage(tjson.url)
