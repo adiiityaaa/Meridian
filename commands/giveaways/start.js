@@ -1,7 +1,7 @@
 const ms = require("ms")
 module.exports = {
-    name: "create",
-    description: "Create a Giveaway!",
+    name: "start",
+    description: "Start a Giveaway!",
     category: "Giveaways",
     type: 1,
     developerOnly: false,
