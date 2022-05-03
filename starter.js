@@ -16,6 +16,8 @@ const { AutoPoster } = require("topgg-autoposter");
 const poster = AutoPoster(config.topgg, client)
 const Topgg = require(`@top-gg/sdk`)
 const Statcord = require("statcord.js");
+const { GiveawaysManager } = require('discord-giveaways');
+
 client.manager = new Manager({
             nodes: [
               { host: "node3.ultimatesrv.com", port: 21249, retryDelay: 5000, password: "JarvisOwnsThisNode", identifier: "Node Germany" },
@@ -30,6 +32,15 @@ client.manager = new Manager({
                 const guild = client.guilds.cache.get(id);
                 if (guild) guild.shard.send(payload);
             }});
+client.giveaways = new GiveawaysManager(client, {
+              storage: './botfiles/storage/giveaways.json',
+              default: {
+                  botsCanWin: false,
+                  embedColor: '#00FF00',
+                  embedColorEnd: '#00FFFF',
+                  reaction: '🎉'
+              }
+          });            
 client.emotes = require("./botfiles/config/emotes.json");
 client.settings = require("./botfiles/config/settings.json");
 client.colors = require("./botfiles/config/colors.json");
