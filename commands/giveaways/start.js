@@ -33,10 +33,14 @@ module.exports = {
             name: "channel",
             type: "CHANNEL",
             description: "Channel for the Giveaway",
+            channelTypes: ["GUILD_TEXT"],
             required: true,
           },
       ],    
-    run: async(client, interaction) => {  
+    run: async(client, interaction) => {
+      const noperms = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **You do not have Manage Messages Permission or Giveaways Role.**`)    
+if(!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")){ return interaction.reply({ embeds: [noperms] }) }
+        const embed = client.modules.embed(client, client.colors.green, `${client.emotes.check} | **Giveaway has been started.**`)  
         const giveawayChannel = interaction.options.getChannel('channel');
         const giveawayDuration = interaction.options.getString('duration');
         const giveawayWinnerCount = interaction.options.getInteger('winners');
@@ -45,7 +49,7 @@ module.exports = {
             duration: ms(giveawayDuration),
             prize: giveawayPrize,
             winnerCount: giveawayWinnerCount,
-            hostedBy: client.config.hostedBy ? interaction.user : null,
-            messages
+            hostedBy: interaction.user
         });
+        interaction.reply({ embeds: [embed] })
     }}        
