@@ -1,4 +1,4 @@
-const { get } = require('axios');
+const fetch = require("node-fetch");
 
 module.exports = {
 name: "images",
@@ -54,7 +54,7 @@ run: async(client, interaction) => {
 const type = interaction.options.getString('type')
 switch(type) {
 case "bike":
-    let bjson = get(`https://www.reddit.com/r/MotorcyclePorn/random/.json`).then((res) => res.json());  
+    let bjson = fetch(`https://www.reddit.com/r/MotorcyclePorn/random/.json`).then((res) => res.json());  
     bjson = bjson.data;
     bjson = bjson[0].data.children[0].data;  
     const bembed = new client.discord.MessageEmbed()
