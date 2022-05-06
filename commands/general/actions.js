@@ -1,4 +1,4 @@
-const { get } = require('axios');
+const slap = require('axios');
 
 module.exports = {
 name: "actions",
@@ -46,6 +46,7 @@ options: [
     },
   ],    
 run: async(client, interaction) => { 
+    const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
     await interaction.deferReply().catch(() => {});     
 const type = interaction.options.getString('type')
 switch(type) {
