@@ -36,12 +36,19 @@ options: [
             value: "fox",
         },
         {
+            name: "Kangaroo",
+            value: "kangaroo",
+        },
+        {
             name: "Koala",
             value: "koala",
         },
         {
             name: "Panda",
             value: "panda",
+        },        {
+            name: "Raccoon",
+            value: "raccoon",
         },
       ],
     },
@@ -107,6 +114,20 @@ try {
    interaction.editReply({ embeds: [error] }) 
 } 
 break;     
+case "kangaroo":
+try {
+    const url = "https://some-random-api.ml/animal/kangaroo";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.animals)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break; 
 case "koala":
 try {
     const url = "https://some-random-api.ml/facts/koala";
@@ -135,4 +156,18 @@ try {
    interaction.editReply({ embeds: [error] }) 
 } 
 break;    
+case "raccoon":
+try {
+    const url = "https://some-random-api.ml/animal/raccoon";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.animals)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break; 
 }}}

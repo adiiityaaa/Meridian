@@ -64,7 +64,7 @@ const type = interaction.options.getString('type')
 switch(type) {
 case "bird":
 try {
-    const url = "https://some-random-api.ml/img/bird";
+    const url = "https://some-random-api.ml/animal/bird";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -77,7 +77,7 @@ try {
 break;    
 case "cat":
 try {
-    const url = "https://some-random-api.ml/img/cat";
+    const url = "https://some-random-api.ml/animal/cat";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -90,7 +90,7 @@ try {
 break;    
 case "dog":
 try {
-    const url = "https://some-random-api.ml/img/dog";
+    const url = "https://some-random-api.ml/animal/dog";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -103,7 +103,7 @@ try {
 break;    
 case "fox":
 try {
-    const url = "https://some-random-api.ml/img/fox";
+    const url = "https://some-random-api.ml/animal/fox";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -116,7 +116,7 @@ try {
 break;    
 case "kangaroo":
 try {
-    const url = "https://some-random-api.ml/img/kangaroo";
+    const url = "https://some-random-api.ml/animal/kangaroo";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -129,7 +129,7 @@ try {
 break;    
 case "koala":
 try {
-    const url = "https://some-random-api.ml/img/koala";
+    const url = "https://some-random-api.ml/animal/koala";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -142,8 +142,9 @@ try {
 break;    
 case "panda":
 try {
-    const url = "https://some-random-api.ml/img/panda";
+    const url = "https://some-random-api.ml/animal/panda";
     const res = await fetch(url).then(async (res) => await res.json())
+    console.log(res)
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
     .setImage(res.link)
@@ -155,7 +156,7 @@ try {
 break;    
 case "raccoon":
 try {
-    const url = "https://some-random-api.ml/img/raccoon";
+    const url = "https://some-random-api.ml/animal/raccoon";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
@@ -168,7 +169,7 @@ try {
 break;    
 case "redpanda":
 try {
-    const url = "https://some-random-api.ml/img/redpanda";
+    const url = "https://some-random-api.ml/animal/redpanda";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
