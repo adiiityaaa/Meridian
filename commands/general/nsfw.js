@@ -1,5 +1,5 @@
 const { get } = require('axios');
-const { fetch } = require("node-fetch");
+const fetch = require("node-fetch");
 
 module.exports = {
 name: "nsfw",
@@ -89,13 +89,12 @@ if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nnsfw] }) }
 switch(type) {
 case "4k":
 try {
-    await fetch('https://nekobot.xyz/api/image?type=4k').then(async r => {
-    const json = await r.json();        
+    const res = await fetch('https://nekobot.xyz/api/image?type=4k')
+    const json = await res.json();        
     const embed = new client.discord.MessageEmbed()
     .setImage(json.data.message)
     .setColor(client.colors.nsfw)    
     interaction.editReply({ embeds: [embed] })
-    })
 } catch(e) {
  console.log(e)
  interaction.editReply({ embeds: [error] })
