@@ -89,7 +89,7 @@ if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nnsfw] }) }
 switch(type) {
 case "4k":
 try {
-    await fetch('https://nekobot.xyz/api/image?type=4k').then(r => {
+    await fetch('https://nekobot.xyz/api/image?type=4k').then(async r => {
     const json = await r.json();        
     const embed = new client.discord.MessageEmbed()
     .setImage(json.data.message)
