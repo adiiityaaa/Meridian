@@ -68,7 +68,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -81,7 +81,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -94,7 +94,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -107,7 +107,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -120,7 +120,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -133,7 +133,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -147,7 +147,7 @@ try {
     console.log(res)
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -160,7 +160,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -173,7 +173,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setImage(`${res.image}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
