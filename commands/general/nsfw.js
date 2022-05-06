@@ -1,4 +1,3 @@
-const { get } = require('axios');
 const fetch = require("node-fetch");
 
 module.exports = {
@@ -85,7 +84,7 @@ const error = client.modules.embed(client, client.colors.red, `${client.emotes.c
 const nnsfw = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **This Command must be used in NSFW Channel.**`)
 const type = interaction.options.getString('type');
 const cate = interaction.options.getString('category');
-if(!interaction.channel.nsfw) { return interaction.reply({ embeds: [nnsfw] }) }
+if(!interaction.channel.nsfw) { return interaction.editReply({ embeds: [nnsfw] }) }
 switch(type) {
 case "4k":
 try {
@@ -136,12 +135,12 @@ if(!cate) { return interaction.editReply({ embeds: [nocat] }) }
 switch(cate) {
     case "human":
         try {
-            get('https://nekobot.xyz/api/image?type=ass').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=ass')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -149,12 +148,12 @@ switch(cate) {
     break;
     case "hentai":
         try {
-            get('https://nekobot.xyz/api/image?type=hass').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=hass')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -167,12 +166,12 @@ if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }
 switch(cate) {
     case "human":
         try {
-            get('https://nekobot.xyz/api/image?type=boobs').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=boobs')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -180,12 +179,12 @@ switch(cate) {
     break;
     case "hentai":
         try {
-            get('https://nekobot.xyz/api/image?type=hboobs').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=hboobs')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -195,12 +194,12 @@ switch(cate) {
 break;
 case "gonewild":
     try {
-        get('https://nekobot.xyz/api/image?type=gonewild').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=gonewild')
+        const json = await res.json(); 
         const embed = new client.discord.MessageEmbed()
-        .setImage(r.data.message)
+        .setImage(json.message)
         .setColor(client.colors.nsfw)    
         interaction.editReply({ embeds: [embed] })
-        })
     } catch(e) {
      console.log(e)
      interaction.editReply({ embeds: [error] })
@@ -208,12 +207,12 @@ case "gonewild":
 break;
 case "hentai":
     try {
-        get('https://nekobot.xyz/api/image?type=hentai').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=hentai')
+        const json = await res.json(); 
         const embed = new client.discord.MessageEmbed()
-        .setImage(r.data.message)
+        .setImage(json.message)
         .setColor(client.colors.nsfw)    
         interaction.editReply({ embeds: [embed] })
-        })
     } catch(e) {
      console.log(e)
      interaction.editReply({ embeds: [error] })
@@ -224,12 +223,12 @@ if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }
 switch(cate) {
     case "human":
         try {
-            get('https://nekobot.xyz/api/image?type=neko').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=neko')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -237,12 +236,12 @@ switch(cate) {
     break;
     case "hentai":
         try {
-            get('https://nekobot.xyz/api/image?type=hneko').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=hneko')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -252,12 +251,12 @@ switch(cate) {
 break;
 case "porn":
     try {
-        get('https://nekobot.xyz/api/image?type=pgif').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=pgif')
+        const json = await res.json(); 
         const embed = new client.discord.MessageEmbed()
-        .setImage(r.data.message)
+        .setImage(json.message)
         .setColor(client.colors.nsfw)    
         interaction.editReply({ embeds: [embed] })
-        })
     } catch(e) {
      console.log(e)
      interaction.editReply({ embeds: [error] })
@@ -265,12 +264,12 @@ case "porn":
 break;
 case "pussy":
     try {
-        get('https://nekobot.xyz/api/image?type=pussy').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=pussy')
+        const json = await res.json(); 
         const embed = new client.discord.MessageEmbed()
-        .setImage(r.data.message)
+        .setImage(json.message)
         .setColor(client.colors.nsfw)    
         interaction.editReply({ embeds: [embed] })
-        })
     } catch(e) {
      console.log(e)
      interaction.editReply({ embeds: [error] })
@@ -281,12 +280,12 @@ if(!cate) { return interaction.editReply({ embeds: [nocat] }) }
 switch(cate) {
     case "human":
         try {
-            get('https://nekobot.xyz/api/image?type=thighs').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=thighs')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
@@ -294,12 +293,12 @@ switch(cate) {
     break;
     case "hentai":
         try {
-            get('https://nekobot.xyz/api/image?type=hthighs').then(r => {
+            const res = await fetch('https://nekobot.xyz/api/image?type=hthighs')
+            const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
         } catch(e) {
             console.log(e)
             interaction.editReply({ embeds: [error] })
