@@ -4,7 +4,8 @@
     "cyan": "#00FFFF",
     "yellow": "#FFFF00",
     "gold": "#F9F295",
-    "nsfw": "#f57a7a",
-    "images": "#83c804",
-    "actions": "#8b45b0"
+    "nsfw": "#EE94E8",
+    "animals": "#83c804",
+    "actions": "#8b45b0",
+    "facts": "#75aae6"
 }
