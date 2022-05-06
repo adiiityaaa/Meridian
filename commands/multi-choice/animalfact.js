@@ -1,8 +1,9 @@
 const fetch = require("node-fetch");
+const turl = "https://media.discordapp.net/attachments/933699893279727696/972171433352511518/unknown.png?width=612&height=584";
 
 module.exports = {
-name: "animals",
-description: "Displays Animal Images",
+name: "animalfact",
+description: "Tells you a fact about Animal",
 category: "Multi-Choice",
 type: 1,
 developerOnly: false,
@@ -39,20 +40,8 @@ options: [
             value: "koala",
         },
         {
-            name: "Kangaroo",
-            value: "kangaroo",
-        },
-        {
             name: "Panda",
             value: "panda",
-        },
-        {
-            name: "Raccoon",
-            value: "raccooon",
-        },
-        {
-            name: "Red Panda",
-            value: "redpanda",
         },
       ],
     },
@@ -64,11 +53,12 @@ const type = interaction.options.getString('type')
 switch(type) {
 case "bird":
 try {
-    const url = "https://some-random-api.ml/img/bird";
+    const url = "https://some-random-api.ml/facts/bird";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -77,11 +67,12 @@ try {
 break;    
 case "cat":
 try {
-    const url = "https://some-random-api.ml/img/cat";
+    const url = "https://some-random-api.ml/facts/cat";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -90,11 +81,12 @@ try {
 break;    
 case "dog":
 try {
-    const url = "https://some-random-api.ml/img/dog";
+    const url = "https://some-random-api.ml/facts/dog";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -103,37 +95,26 @@ try {
 break;    
 case "fox":
 try {
-    const url = "https://some-random-api.ml/img/fox";
+    const url = "https://some-random-api.ml/facts/fox";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
    interaction.editReply({ embeds: [error] }) 
 } 
-break;    
-case "kangaroo":
-try {
-    const url = "https://some-random-api.ml/img/kangaroo";
-    const res = await fetch(url).then(async (res) => await res.json())
-    const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
-    interaction.editReply({ embeds: [embed] })
-} catch(e) {
-   console.log(e)
-   interaction.editReply({ embeds: [error] }) 
-} 
-break;    
+break;     
 case "koala":
 try {
-    const url = "https://some-random-api.ml/img/koala";
+    const url = "https://some-random-api.ml/facts/koala";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -142,37 +123,12 @@ try {
 break;    
 case "panda":
 try {
-    const url = "https://some-random-api.ml/img/panda";
+    const url = "https://some-random-api.ml/facts/panda";
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
-    interaction.editReply({ embeds: [embed] })
-} catch(e) {
-   console.log(e)
-   interaction.editReply({ embeds: [error] }) 
-} 
-break;    
-case "raccoon":
-try {
-    const url = "https://some-random-api.ml/img/raccoon";
-    const res = await fetch(url).then(async (res) => await res.json())
-    const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
-    interaction.editReply({ embeds: [embed] })
-} catch(e) {
-   console.log(e)
-   interaction.editReply({ embeds: [error] }) 
-} 
-break;    
-case "redpanda":
-try {
-    const url = "https://some-random-api.ml/img/redpanda";
-    const res = await fetch(url).then(async (res) => await res.json())
-    const embed = new client.discord.MessageEmbed()
-    .setColor(client.colors.animals)
-    .setImage(res.link)
+    .setColor(client.colors.facts)
+    .setDescription(`${res.fact}`)
+    .setThumbnail(`${turl}`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)

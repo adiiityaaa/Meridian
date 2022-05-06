@@ -78,8 +78,8 @@ options: [
     },
   ],    
 run: async(client, interaction) => { 
-    const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
-    await interaction.deferReply().catch(() => {});     
+const error = client.modules.embed(client, client.colors.red, `${client.emotes.cross} | **An error has occured.**`)
+await interaction.deferReply().catch(() => {});     
 const type = interaction.options.getString('type')
 switch(type) {
     case "bored":
