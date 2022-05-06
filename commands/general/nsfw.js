@@ -105,12 +105,12 @@ if(!cate) { return  interaction.editReply({ embeds: [nocat] }) }
 switch(cate) {
 case "human":
     try {
-        get('https://nekobot.xyz/api/image?type=anal').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=anal')
+        const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
     } catch(e) {
         console.log(e)
          interaction.editReply({ embeds: [error] })
@@ -118,12 +118,12 @@ case "human":
 break;
 case "hentai":
     try {
-        get('https://nekobot.xyz/api/image?type=hanal').then(r => {
+        const res = await fetch('https://nekobot.xyz/api/image?type=hanal')
+        const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
-            .setImage(r.data.message)
+            .setImage(json.message)
             .setColor(client.colors.nsfw)    
             interaction.editReply({ embeds: [embed] })
-            })
     } catch(e) {
         console.log(e)
         interaction.editReply({ embeds: [error] })
