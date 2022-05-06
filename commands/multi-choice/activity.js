@@ -1,7 +1,7 @@
 module.exports = {
     name: "activity",
     description: "Start an activity in the Voice Channel!",
-    category: "General",
+    category: "Multi-Choice",
     type: 1,
     developerOnly: false,
     voiceChannel: false,

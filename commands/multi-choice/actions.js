@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 module.exports = {
 name: "actions",
 description: "Displays Action GIF or Images",
-category: "General",
+category: "Multi-Choice",
 type: 1,
 developerOnly: false,
 voiceChannel: false,
