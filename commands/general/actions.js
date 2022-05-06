@@ -42,10 +42,6 @@ options: [
               name: "Slap",
               value: "slap",
           },
-          {
-            name: "Smug",
-            value: "smug",
-        },
       ],
     },
   ],    
@@ -54,52 +50,81 @@ run: async(client, interaction) => {
 const type = interaction.options.getString('type')
 switch(type) {
     case "cry":
-        let cjson = get(`https://neko-love.xyz/api/v1/cry`);  
-        const cembed = new client.discord.MessageEmbed()
-        .setImage(cjson.data.url)
-        .setColor(client.colors.actions)
-        interaction.editReply({ embeds: [cembed] }) 
-    break; 
+        try {
+            const res = await fetch('https://neko-love.xyz/api/v1/cry')
+            const json = await res.json();        
+            const embed = new client.discord.MessageEmbed()
+            .setImage(json.url)
+            .setColor(client.colors.nsfw)    
+            interaction.editReply({ embeds: [embed] })
+        } catch(e) {
+         console.log(e)
+         interaction.editReply({ embeds: [error] })
+        } 
+        break;
     case "hug":
-    let hjson = get(`https://neko-love.xyz/api/v1/hug`);  
-    const hembed = new client.discord.MessageEmbed()
-    .setImage(hjson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [hembed] }) 
-break; 
+        try {
+            const res = await fetch('https://neko-love.xyz/api/v1/hug')
+            const json = await res.json();        
+            const embed = new client.discord.MessageEmbed()
+            .setImage(json.url)
+            .setColor(client.colors.nsfw)    
+            interaction.editReply({ embeds: [embed] })
+        } catch(e) {
+         console.log(e)
+         interaction.editReply({ embeds: [error] })
+        } 
+        break;
 case "kiss":
-    let kjson = get(`https://neko-love.xyz/api/v1/kiss`);  
-    const kembed = new client.discord.MessageEmbed()
-    .setImage(kjson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [kembed] }) 
-break; 
+    try {
+        const res = await fetch('https://neko-love.xyz/api/v1/kiss')
+        const json = await res.json();        
+        const embed = new client.discord.MessageEmbed()
+        .setImage(json.url)
+        .setColor(client.colors.nsfw)    
+        interaction.editReply({ embeds: [embed] })
+    } catch(e) {
+     console.log(e)
+     interaction.editReply({ embeds: [error] })
+    } 
+    break;
 case "pat":
-    let pajson = get(`https://neko-love.xyz/api/v1/pat`); 
-    const paembed = new client.discord.MessageEmbed()
-    .setImage(pajson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [paembed] }) 
-break; 
+    try {
+        const res = await fetch('https://neko-love.xyz/api/v1/pat')
+        const json = await res.json();        
+        const embed = new client.discord.MessageEmbed()
+        .setImage(json.url)
+        .setColor(client.colors.nsfw)    
+        interaction.editReply({ embeds: [embed] })
+    } catch(e) {
+     console.log(e)
+     interaction.editReply({ embeds: [error] })
+    } 
+    break;
 case "punch":
-    let pujson = get(`https://neko-love.xyz/api/v1/punch`);  
-    const puembed = new client.discord.MessageEmbed()
-    .setImage(pujson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [puembed] }) 
-break; 
+    try {
+        const res = await fetch('https://neko-love.xyz/api/v1/punch')
+        const json = await res.json();        
+        const embed = new client.discord.MessageEmbed()
+        .setImage(json.url)
+        .setColor(client.colors.nsfw)    
+        interaction.editReply({ embeds: [embed] })
+    } catch(e) {
+     console.log(e)
+     interaction.editReply({ embeds: [error] })
+    } 
+    break;
 case "slap":
-    let sljson = get(`https://neko-love.xyz/api/v1/slap`);  
-    const slembed = new client.discord.MessageEmbed()
-    .setImage(sljson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [slembed] }) 
-break; 
-case "neko":
-    let njson = get(`https://neko-love.xyz/api/v1/smug`);  
-    const nembed = new client.discord.MessageEmbed()
-    .setImage(njson.data.url)
-    .setColor(client.colors.actions)
-    interaction.editReply({ embeds: [nembed] }) 
-break; 
+    try {
+        const res = await fetch('https://neko-love.xyz/api/v1/slap')
+        const json = await res.json();        
+        const embed = new client.discord.MessageEmbed()
+        .setImage(json.url)
+        .setColor(client.colors.nsfw)    
+        interaction.editReply({ embeds: [embed] })
+    } catch(e) {
+     console.log(e)
+     interaction.editReply({ embeds: [error] })
+    } 
+    break;
 }}}  

@@ -55,6 +55,10 @@ options: [
               value: "pussy",
           },
           {
+            name: "Tentacle",
+            value: "tentacle",
+        },          
+          {
               name: "Thighs",
               value: "thighs",
           },
@@ -64,7 +68,7 @@ options: [
         name: "category",
         type: "STRING",
         description: "Category of NSFW",
-        required: true,
+        required: false,
         choices: [
             {
                 name: "Human",
@@ -275,12 +279,25 @@ case "pussy":
      interaction.editReply({ embeds: [error] })
     }
 break;
+case "tentacle":
+try {
+    const res = await fetch('https://nekobot.xyz/api/image?type=tentacle')
+    const json = await res.json();        
+    const embed = new client.discord.MessageEmbed()
+    .setImage(json.message)
+    .setColor(client.colors.nsfw)    
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+ console.log(e)
+ interaction.editReply({ embeds: [error] })
+} 
+break;
 case "thighs":
 if(!cate) { return interaction.editReply({ embeds: [nocat] }) }    
 switch(cate) {
     case "human":
         try {
-            const res = await fetch('https://nekobot.xyz/api/image?type=thighs')
+            const res = await fetch('https://nekobot.xyz/api/image?type=thigh')
             const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
             .setImage(json.message)
@@ -293,7 +310,7 @@ switch(cate) {
     break;
     case "hentai":
         try {
-            const res = await fetch('https://nekobot.xyz/api/image?type=hthighs')
+            const res = await fetch('https://nekobot.xyz/api/image?type=hthigh')
             const json = await res.json(); 
             const embed = new client.discord.MessageEmbed()
             .setImage(json.message)
