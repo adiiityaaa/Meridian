@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 module.exports = {
 name: "nsfw",
 description: "Displays NSFW Content",
-category: "Multi-Choice",
+category: "Entertainment",
 type: 1,
 developerOnly: false,
 voiceChannel: false,
