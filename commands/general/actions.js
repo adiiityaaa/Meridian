@@ -1,4 +1,4 @@
-const slap = require('axios');
+const fetch = require("node-fetch");
 
 module.exports = {
 name: "actions",
