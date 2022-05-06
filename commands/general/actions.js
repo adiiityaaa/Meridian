@@ -42,6 +42,10 @@ options: [
               name: "Slap",
               value: "slap",
           },
+          {
+            name: "Wink",
+            value: "wink",
+        },
       ],
     },
   ],    
@@ -56,7 +60,7 @@ switch(type) {
             const json = await res.json();        
             const embed = new client.discord.MessageEmbed()
             .setImage(json.url)
-            .setColor(client.colors.nsfw)    
+            .setColor(client.colors.actions)    
             interaction.editReply({ embeds: [embed] })
         } catch(e) {
          console.log(e)
@@ -69,7 +73,7 @@ switch(type) {
             const json = await res.json();        
             const embed = new client.discord.MessageEmbed()
             .setImage(json.url)
-            .setColor(client.colors.nsfw)    
+            .setColor(client.colors.actions)    
             interaction.editReply({ embeds: [embed] })
         } catch(e) {
          console.log(e)
@@ -82,7 +86,7 @@ case "kiss":
         const json = await res.json();        
         const embed = new client.discord.MessageEmbed()
         .setImage(json.url)
-        .setColor(client.colors.nsfw)    
+        .setColor(client.colors.actions)    
         interaction.editReply({ embeds: [embed] })
     } catch(e) {
      console.log(e)
@@ -95,7 +99,7 @@ case "pat":
         const json = await res.json();        
         const embed = new client.discord.MessageEmbed()
         .setImage(json.url)
-        .setColor(client.colors.nsfw)    
+        .setColor(client.colors.actions)    
         interaction.editReply({ embeds: [embed] })
     } catch(e) {
      console.log(e)
@@ -108,7 +112,7 @@ case "punch":
         const json = await res.json();        
         const embed = new client.discord.MessageEmbed()
         .setImage(json.url)
-        .setColor(client.colors.nsfw)    
+        .setColor(client.colors.actions)    
         interaction.editReply({ embeds: [embed] })
     } catch(e) {
      console.log(e)
@@ -121,11 +125,24 @@ case "slap":
         const json = await res.json();        
         const embed = new client.discord.MessageEmbed()
         .setImage(json.url)
-        .setColor(client.colors.nsfw)    
+        .setColor(client.colors.actions)    
         interaction.editReply({ embeds: [embed] })
     } catch(e) {
      console.log(e)
      interaction.editReply({ embeds: [error] })
     } 
     break;
+    case "wink":
+        try {
+            const url = "https://some-random-api.ml/animu/wink";
+            const res = await fetch(url).then(async (res) => await res.json())    
+            const embed = new client.discord.MessageEmbed()
+            .setImage(res.link)
+            .setColor(client.colors.actions)    
+            interaction.editReply({ embeds: [embed] })
+        } catch(e) {
+         console.log(e)
+         interaction.editReply({ embeds: [error] })
+        } 
+        break;    
 }}}  
