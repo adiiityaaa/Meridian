@@ -92,7 +92,7 @@ try {
     const res = await fetch('https://nekobot.xyz/api/image?type=4k')
     const json = await res.json();        
     const embed = new client.discord.MessageEmbed()
-    .setImage(json.data.message)
+    .setImage(json.message)
     .setColor(client.colors.nsfw)    
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
