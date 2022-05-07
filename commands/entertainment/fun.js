@@ -23,10 +23,6 @@ options: [
               value: "8ball",
           },
           {
-              name: "Advice",
-              value: "advice",
-          },
-          {
               name: "Coin Flip",
               value: "coinflip",
           },
@@ -47,21 +43,13 @@ options: [
               value: "meme",
           },
           {
-              name: "Never Have I Ever",
-              value: "nhie",
-          },
-          {
               name: "Paranoia",
               value: "para",
           },
           {
               name: "Truth",
               value: "truth",
-          },
-          {
-            name: "Useless Fact",
-            value: "ufact",
-        },  
+          }, 
         {
             name: "Would you rather",
             value: "wyr",
@@ -110,7 +98,7 @@ case "coinflip":
     else result = "Tails";
     const cembed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`It is a **${result}**!`)
+    .setDescription(`${client.emotes.garrow} It is a **${result}**!`)
     interaction.editReply({ embeds: [cembed] })
 break;
 case "dicksize":
@@ -119,14 +107,92 @@ const dreplies = require('../../botfiles/storage/dsizes.json')
 const dreply = dreplies[Math.floor(Math.random() * dreplies.length)]
 const dembed = new client.discord.MessageEmbed()
 .setColor(client.colors.fun)
-.setDescription(`<@${member.id}>'s Dick size is:\n${dreply}`)
+.setDescription(`${client.emotes.garrow} <@${member.id}>'s Dick size is:\n${dreply}`)
 interaction.editReply({ embeds: [dembed] })
 break;
 case "grate":
     if(!member) { return interaction.editReply({ embeds: [nouser] }) }
     const gembed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`<@${member.id}> is ${Math.floor(Math.random() * 100 + 1)}% Gay!`)
+    .setDescription(`${client.emotes.rarrow} <@${member.id}> is **${Math.floor(Math.random() * 100 + 1)}%** Gay!`)
     interaction.editReply({ embeds: [gembed] })
-break;        
+break;  
+case "dare":
+    try {
+        const url = "https://api.truthordarebot.xyz/api/dare";
+        const res = await fetch(url).then(async (res) => await res.json())
+        const embed = new client.discord.MessageEmbed()
+        .setColor(client.colors.fun)
+        .setDescription(`${client.emotes.garrow} ${res.question}`)
+        interaction.editReply({ embeds: [embed] })
+    } catch(e) {
+       console.log(e)
+       interaction.editReply({ embeds: [error] }) 
+    } 
+    break;
+    case "meme":
+        try {
+            const url = "https://random-d.uk/api/v2/random";
+            const res = await fetch(url).then(async (res) => await res.json())
+            const embed = new client.discord.MessageEmbed()
+            .setColor(client.colors.fun)
+            .setDescription(`${client.emotes.garrow} ${res.url}`)
+            interaction.editReply({ embeds: [embed] })
+        } catch(e) {
+           console.log(e)
+           interaction.editReply({ embeds: [error] }) 
+        } 
+        break;
+        case "para":
+            try {
+                const url = "https://api.truthordarebot.xyz/api/paranoia";
+                const res = await fetch(url).then(async (res) => await res.json())
+                const embed = new client.discord.MessageEmbed()
+                .setColor(client.colors.fun)
+                .setDescription(`${client.emotes.garrow} ${res.question}`)
+                interaction.editReply({ embeds: [embed] })
+            } catch(e) {
+               console.log(e)
+               interaction.editReply({ embeds: [error] }) 
+            } 
+            break;
+            case "truth":
+try {
+    const url = "https://api.truthordarebot.xyz/api/truth";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.fun)
+    .setDescription(`${client.emotes.garrow} ${res.question}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break;
+case "wyr":
+try {
+    const url = "https://api.truthordarebot.xyz/api/wyr";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.fun)
+    .setDescription(`${client.emotes.garrow} ${res.question}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break;
+case "yomomma":
+try {
+    const url = "https://api.yomomma.info/";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.fun)
+    .setDescription(`${client.emotes.garrow} ${res.joke}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break;
 }}}    
