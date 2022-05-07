@@ -119,14 +119,14 @@ const dreplies = require('../../botfiles/storage/dsizes.json')
 const dreply = dreplies[Math.floor(Math.random() * dreplies.length)]
 const dembed = new client.discord.MessageEmbed()
 .setColor(client.colors.fun)
-.setDescription(`${member.id}'s Dick size is:\n${dreply}`)
+.setDescription(`<@${member.id}>'s Dick size is:\n${dreply}`)
 interaction.editReply({ embeds: [dembed] })
 break;
 case "grate":
     if(!member) { return interaction.editReply({ embeds: [nouser] }) }
     const gembed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`${member.id} is ${Math.floor(Math.random() * 100 + 1)}% Gay!`)
+    .setDescription(`<@${member.id}> is ${Math.floor(Math.random() * 100 + 1)}% Gay!`)
     interaction.editReply({ embeds: [gembed] })
 break;        
 }}}    
