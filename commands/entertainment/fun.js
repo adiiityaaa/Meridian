@@ -123,7 +123,7 @@ case "dare":
         const res = await fetch(url).then(async (res) => await res.json())
         const embed = new client.discord.MessageEmbed()
         .setColor(client.colors.fun)
-        .setDescription(`${client.emotes.garrow} ${res.question}`)
+        .setDescription(`${client.emotes.rarrow} **${res.question}**`)
         interaction.editReply({ embeds: [embed] })
     } catch(e) {
        console.log(e)
@@ -149,7 +149,7 @@ case "dare":
                 const res = await fetch(url).then(async (res) => await res.json())
                 const embed = new client.discord.MessageEmbed()
                 .setColor(client.colors.fun)
-                .setDescription(`${client.emotes.garrow} ${res.question}`)
+                .setDescription(`${client.emotes.rarrow} **${res.question}**`)
                 interaction.editReply({ embeds: [embed] })
             } catch(e) {
                console.log(e)
@@ -162,7 +162,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`${client.emotes.garrow} ${res.question}`)
+    .setDescription(`${client.emotes.rarrow} **${res.question}**`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -175,7 +175,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`${client.emotes.garrow} ${res.question}`)
+    .setDescription(`${client.emotes.rarrow} **${res.question}**`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
@@ -188,7 +188,7 @@ try {
     const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
-    .setDescription(`${client.emotes.garrow} ${res.joke}`)
+    .setDescription(`${client.emotes.rarrow} **${res.joke}**`)
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
