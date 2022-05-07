@@ -1,7 +1,7 @@
 module.exports = { 
     name: "name",
     description: "Edit the name of the Voice Channel.",
-    category: "Moderative",
+    category: "Voice-Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

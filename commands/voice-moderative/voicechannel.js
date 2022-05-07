@@ -3,7 +3,7 @@ const channel = require("./channel");
 module.exports = { 
     name: "voicechannel",
     description: "Create or Delete a voice channel.",
-    category: "Moderative",
+    category: "Voice-Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

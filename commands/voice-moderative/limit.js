@@ -1,7 +1,7 @@
 module.exports = { 
     name: "limit",
     description: "Change the Member Limit of Voice Channel.",
-    category: "Moderative",
+    category: "Voice-Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

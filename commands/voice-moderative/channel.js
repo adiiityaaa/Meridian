@@ -1,7 +1,7 @@
 module.exports = { 
     name: "channel",
     description: "Lock or Unlock a Voice Channel.",
-    category: "Moderative",
+    category: "Voice-Moderative",
     type: 1,    
     developerOnly: false,
     voiceChannel: false,

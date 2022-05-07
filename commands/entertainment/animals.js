@@ -29,6 +29,9 @@ options: [
         {
             name: "Dog",
             value: "dog",
+        },        {
+            name: "Duck",
+            value: "duck",
         },
         {
             name: "Fox",
@@ -101,6 +104,19 @@ try {
    interaction.editReply({ embeds: [error] }) 
 } 
 break;    
+case "duck":
+try {
+    const url = "https://random-d.uk/api/v2/random";
+    const res = await fetch(url).then(async (res) => await res.json())
+    const embed = new client.discord.MessageEmbed()
+    .setColor(client.colors.animals)
+    .setImage(`${res.url}`)
+    interaction.editReply({ embeds: [embed] })
+} catch(e) {
+   console.log(e)
+   interaction.editReply({ embeds: [error] }) 
+} 
+break;
 case "fox":
 try {
     const url = "https://some-random-api.ml/animal/fox";
