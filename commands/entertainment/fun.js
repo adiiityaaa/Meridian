@@ -182,13 +182,17 @@ try {
    interaction.editReply({ embeds: [error] }) 
 } 
 break;
-case "yomomma":
+case "yourmom":
 try {
     const url = "https://api.yomomma.info/";
-    const res = await fetch(url).then(async (res) => await res.json())
+    console.log("1")
+    const res = await fetch(url).then(async (res) => { console.log("2");
+    await res.json() })
+    console.log("3")
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
     .setDescription(`${client.emotes.rarrow} **${res.joke}**`)
+    console.log("4")
     interaction.editReply({ embeds: [embed] })
 } catch(e) {
    console.log(e)
