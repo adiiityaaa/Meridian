@@ -184,17 +184,21 @@ try {
 break;
 case "yourmom":
 try {
+    if(member) {
+    const url1 = "https://api.yomomma.info/";
+    const res1 = await fetch(url1).then(async (res) => await res.json())
+    const embed1 = new client.discord.MessageEmbed()
+    .setColor(client.colors.fun)
+    .setDescription(`${client.emotes.rarrow} **${res1.joke}**`)
+    interaction.editReply({ content: `<@${member.id}>`, embeds: [embed1] })
+    } else { 
     const url = "https://api.yomomma.info/";
-    console.log("1")
-    const res = await fetch(url).then(async (res) => { console.log("2");
-    await res.json() })
-    console.log("3")
+    const res = await fetch(url).then(async (res) => await res.json())
     const embed = new client.discord.MessageEmbed()
     .setColor(client.colors.fun)
     .setDescription(`${client.emotes.rarrow} **${res.joke}**`)
-    console.log("4")
     interaction.editReply({ embeds: [embed] })
-} catch(e) {
+}} catch(e) {
    console.log(e)
    interaction.editReply({ embeds: [error] }) 
 } 
