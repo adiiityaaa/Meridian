@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+import fetch from 'node-fetch';;
 const turl = "https://media.discordapp.net/attachments/933699893279727696/972171433352511518/unknown.png?width=612&height=584";
 
 module.exports = {
