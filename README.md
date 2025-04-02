@@ -1,5 +1,5 @@
-#About Meridian
+# About Meridian
 One of the best music bots to ever accept commands on Discord and rated 9.3/10 based on individual server member feedback, this Discord Bot has everything you ever need from a Music Bot. Be it multiple sources, easy-to-use UI, command-free interaction and what not. You name it, this Meridian has got it. Meridian is the first and only bot to completely integrate every music command into a request channel, with button-based interaction. Meridian supports 5+ music streaming platforms which include Spotify, Deezer, Soundcloud, YouTube, Apple Music, etc. without any compromise on quality. With multiple Lavalink servers located throughout the world, Meridian ensures high-quality, buffer-free, lagless music is securely streamed into your favourite Voice-Channel, right on Discord. Along with Music Moderators, Meridian ensures that your Discord days are super enjoyable with perfect music!
-#Initialization:
+# Initialization:
 Further Development on Project Meridian has been permanently halted owning to new Discord API moderations as well as updated discord.js language. Although popular response, new and strict API guidelines as well as complete overhaul for compatibility with latest discord.js version has pushed Meridian on the verge of development halt.
 As a result, this code may not be directly ready-to-use and will need proper renewal.
